@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ua">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Personal Assistant</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="./images/favicon.webp"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/style.min.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="topSection">
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    <header class="floatingHeader">
+      <div class="section-wrap header-wrap header-wrap-login">
+        <div class="logo">
+          <h1><img src="./images/logo.png" alt="Personal Assistants" /></h1>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!--WELCOME--->
+      <section id="welcome" class="section section-welcome">
+        <div class="section-wrap display-flex">
+          <img
+            src="./images/assistant.png"
+            class="images-assistant"
+            alt="assistant"
+          />
+          <div class="cont-wrap">
+            <h2>Welcome to Your Personal Assistant!</h2>
+            <div class="btns-wrap">
+              <a href="" class="btn-1" target="_blank">
+                <span>sign up</span>
+              </a>
+              <button type="button" class="btn-1">
+                <span>log in</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="about-us-btn-wrap">
+          <a href="#about" class="btn-1">
+            <span>about us</span>
+            <img src="./images/arrowDown.png" alt="" />
+          </a>
+        </div>
+      </section>
+      <!-- ABOUT --->
+      <section id="about" class="section section-abouts">
+        <div class="section-wrap display-flex">
+          <div class="cont-wrap">
+            <h2>ABOUT</h2>
+            <h3>What I can do:</h3>
+            <ul>
+              <li>
+                Save contacts with names, addresses, phone numbers, email and
+                birthdays to the contact book;
+              </li>
+              <li>
+                Display a list of contacts whose birthday is a specified number
+                of days from the current date;
+              </li>
+              <li>
+                Check the correctness of the entered phone number and email when
+                creating or editing a record and notify the user in case of
+                incorrect entry;
+              </li>
+              <li>Search for contacts among book contacts;</li>
+              <li>Edit and delete entries from the contact book;</li>
+              <li>Keep notes with text information;</li>
+              <li>Search for notes;</li>
+              <li>Edit and delete notes;</li>
+              <li>
+                Add "tags" to notes, keywords describing the topic and subject
+                of the record;
+              </li>
+              <li>Search and sort notes by keywords (tags).</li>
+              <li>
+                Upload user files to the cloud service and have access to them.
+              </li>
+              <li>
+                Sort user files by categories (images, documents, videos, etc.)
+                and display only the selected category (file filter by
+                category).
+              </li>
+              <li>Provide a brief summary of news for the day.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a href="#topSection" title="повернутися вгору" class="backToTop">
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+      <span>повернутися вгору</span>
+    </a>
+
+    <script src="./scripts/jquery-3.3.1.min.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
