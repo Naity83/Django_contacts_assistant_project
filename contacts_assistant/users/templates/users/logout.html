@@ -1,10 +1,23 @@
+{% extends 'contacts/base.html' %}
+{% load static %}
+
 {% block content %}
 
-
-
-
-    <div class="container mt-3">
-        <h1>Please come back!</h1>
-    </div>
-
-{% endblock %}
+      <!-- LOGOUT --->
+      <section id="welcome" class="section section-welcome section-logout">
+        <div class="section-wrap display-flex">
+          <div class="cont-wrap">
+            <h2>O! No! <br />Please come back !</h2>
+            <div class="btns-wrap">
+              <a href="{% url 'users:signup' %}" class="btn-1" target="_blank">
+                <span>sign up</span>
+              </a>
+              <a href="{% url 'users:signin' %}" class="btn-1" target="_blank">
+                <span>log in</span>
+              </a>
+            </div>
+          </div>
+          <img src="{% static 'contacts/images/r2.webp' %}" class="images-assistant ml" alt="" />
+        </div>
+      </section>
+      {% endblock %}
