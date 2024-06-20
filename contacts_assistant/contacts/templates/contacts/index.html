@@ -17,12 +17,68 @@
     <div id="preloader">
         <div id="status"></div>
     </div>
-    <header class="floatingHeader">
-        <div class="section-wrap header-wrap header-wrap-login">
-            <div class="logo">
-                <h1><img src="{% static 'contacts/images/logo.png' %}" alt="Personal Assistants" /></h1>
-            </div>
-        </div>
+    <header class="floatingHeader"> 
+      <div class="section-wrap display-flex header-wrap"> 
+        <div class="logo"> 
+          <h1><img src="{% static 'contacts/images/logo.png' %}" alt="Personal Assistants" /></h1> 
+        </div> 
+        <div class="menu"> 
+          <input class="switcher" type="checkbox" id="menu" /> 
+          <label class="open" for="menu"> 
+            <i class="fa fa-bars"></i> 
+          </label> 
+ 
+          <label class="close" for="menu"> 
+            <i class="fa fa-times"></i> 
+          </label> 
+          <nav> 
+
+            <ul class="display-flex"> 
+              
+              {% if user.is_authenticated %}
+              
+            
+              <li class="nav-li menu-link"> 
+                <button type="button" class="btn-2"> 
+                  <span>contact</span> 
+                </button> 
+              </li> 
+              <li class="nav-li menu-link"> 
+                <button type="button" class="btn-2"> 
+                  <span>files</span> 
+                </button> 
+              </li> 
+              <li class="nav-li menu-link"> 
+                <button type="button" class="btn-2"> 
+                  <span>news</span> 
+                </button> 
+              </li> 
+              <li class="nav-li menu-link"> 
+                <button type="button" class="btn-2"> 
+                  <span>notes</span> 
+                </button> 
+              </li>
+              <li class="nav-li menu-link">
+                <form method="post" action="{% url 'users:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-2">Log out</button>
+                </form>
+            </li>
+            {% else %}
+            <li class="nav-li menu-link"> 
+              <a href="{% url 'users:signup' %}" class="btn-2" target="_blank"> 
+                <span>sign up</span> 
+              </a>
+              <li class="nav-li menu-link"> 
+                <a href="{% url 'users:signin' %}" class="btn-2" target="_blank"> 
+                  <span>log in</span> 
+                </a>
+            </li> 
+            {% endif %} 
+            </ul> 
+          </nav> 
+        </div> 
+      </div> 
     </header>
     <main>
         <!--WELCOME--->
@@ -32,12 +88,14 @@
                 <div class="cont-wrap">
                     <h2>Welcome to Your Personal Assistant!</h2>
                     <div class="btns-wrap">
-                        <a href="" class="btn-1" target="_blank">
+                      {% if not user.is_authenticated %}
+                        <a href="{% url 'users:signup' %}" class="btn-1" target="_blank">
                             <span>sign up</span>
                         </a>
-                        <button type="button" class="btn-1">
-                            <span>log in</span>
-                        </button>
+                        <a href="{% url 'users:signin' %}" class="btn-1" target="_blank">
+                          <span>log in</span>
+                      </a>
+                      {% endif %} 
                     </div>
                 </div>
             </div>
@@ -81,4 +139,3 @@
     <script src="{% static 'contacts/scripts/main.js' %}"></script>
 </body>
 </html>
-

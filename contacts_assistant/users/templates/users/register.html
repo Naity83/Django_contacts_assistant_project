@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="ua">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Personal Assistant</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="{% static 'images/favicon.webp' %}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'contacts/css/style.min.css' %}" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="topSection">
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+
+    <header class="floatingHeader">
+      <div class="section-wrap display-flex header-wrap">
+        <div class="logo">
+          <h1><img src="{% static 'contacts/images/logo.png' %}" alt="Personal Assistants" /></h1>
+        </div>
+        <div class="menu">
+          <input class="switcher" type="checkbox" id="menu" />
+          <label class="open" for="menu">
+            <i class="fa fa-bars"></i>
+          </label>
+
+          <label class="close" for="menu">
+            <i class="fa fa-times"></i>
+          </label>
+          <nav>
+            <ul class="display-flex">
+              <li class="nav-li menu-link">
+                <a href="{% url 'users:signup' %}">
+                  <span>sign up</span>
+                </a>
+              </li>
+              <li class="nav-li menu-link">
+                <a href="{% url 'users:signin' %}">
+                  <span>log in</span>
+                </a>
+              </li>
+              <li class="nav-li menu-link">
+                <a href="{% url 'users:logout' %}">
+                  <span>log out</span>
+                </a>
+              </li>
+              <li class="nav-li menu-link">
+                <a href="#">
+                  <span>contact</span>
+                </a>
+              </li>
+              <li class="nav-li menu-link">
+                <a href="#">
+                  <span>files</span>
+                </a>
+              </li>
+              <li class="nav-li menu-link">
+                <a href="#">
+                  <span>news</span>
+                </a>
+              </li>
+              <li class="nav-li menu-link">
+                <a href="#">
+                  <span>notes</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- SIGNUP -->
+      <section id="signup" class="section section-register">
+        <div class="section-wrap display-flex">
+          <div class="cont-wrap">
+            <div class="form-stile1 mr50">
+              <form id="signupForm" method="post">
+                {% csrf_token %}
+                <legend>Sign Up</legend>
+                <div class="container">
+                  {% if form.errors and form.non_field_errors %}
+                  <div class="alert alert-danger" role="alert">
+                    {{ form.non_field_errors }}
+                  </div>
+                  {% endif %}
+                  <div class="form-item display-flex">
+                    <label for="username">Username</label>
+                    {{ form.username }}
+                    <span>{{ form.errors.username }}</span>
+                  </div>
+                  <div class="form-item display-flex">
+                    <label for="email">Email</label>
+                    {{ form.email }}
+                    <span>{{ form.errors.email }}</span>
+                  </div>
+                  <div class="form-item display-flex">
+                    <label for="password1">Password</label>
+                    {{ form.password1 }}
+                    <span>{{ form.errors.password1 }}</span>
+                  </div>
+                  <div class="form-item display-flex">
+                    <label for="password2">Repeat Password</label>
+                    {{ form.password2 }}
+                    <span>{{ form.errors.password2 }}</span>
+                  </div>
+                  <div class="btns-wrap">
+                    <button type="submit" class="btn-1">
+                      <span>Sign Up</span>
+                    </button>
+                    <button type="reset" class="btn-1">
+                      <span>Reset</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <img src="{% static 'contacts/images/r9.webp' %}" class="images-assistant" alt="" />
+        </div>
+      </section>
+    </main>
+
+    <a href="#topSection" title="повернутися вгору" class="backToTop">
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+      <span>повернутися вгору</span>
+    </a>
+
+    <script src="{% static 'contacts/scripts/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'contacts/scripts/main.js' %}"></script>
+  </body>
+</html>
