@@ -34,9 +34,9 @@
             <ul class="display-flex"> 
               {% if user.is_authenticated %}
               <li class="nav-li menu-link"> 
-                <button type="button" class="btn-2"> 
-                  <span>contact</span> 
-                </button> 
+                <a href="{% url 'contacts:contact_list' %}" class="btn-2" target="_blank"> 
+                    <span>contacts</span> 
+                  </a>
               </li> 
               <li class="nav-li menu-link"> 
                 <button type="button" class="btn-2"> 

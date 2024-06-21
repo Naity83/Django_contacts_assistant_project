@@ -1,0 +1,73 @@
+{% extends 'contacts/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- TABLE -->
+<section id="signup" class="section section-table">
+  <div class="section-wrap">
+    <div class="serch-row pb40 display-flex">
+      <div class="search-container">
+        <form action="">
+          <input type="text" placeholder="Search.." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <div class="btns-wrap">
+        <a href="{% url 'contacts:contact_create' %}" class="btn-1 btn-2" target="_blank">
+          <span>Add New Contact</span>
+        </a>
+        <button type="button" class="btn-1 btn-2">
+          <span>Upcoming Birthday</span>
+        </button>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <div class="thead-bg"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Birthday</th>
+            <th>Email</th>
+            <th>Changes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contact in contacts %}
+          <tr>
+            <td>{{ contact.full_name }}</td>
+            <td>{{ contact.phone_number }}</td>
+            <td>{{ contact.address }}</td>
+            <td>{{ contact.birthday }}</td>
+            <td>{{ contact.email }}</td>
+            <td data-th="Changes">
+              <div class="td-inner">
+                <div class="table-btns-wrap display-flex">
+                  <form action="{% url 'contacts:contact_delete' pk=contact.pk %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="table-btn delete-btn" title="Delete">
+                      <span class="for-screnReader">Delete</span>
+                    </button>
+                  </form>
+                  <a href="{% url 'contacts:contact_update' pk=contact.pk %}" class="table-btn change-btn" title="Change">
+                    <span class="for-screnReader">Change</span>
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="6">No contacts found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
