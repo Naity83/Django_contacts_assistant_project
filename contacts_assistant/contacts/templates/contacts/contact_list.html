@@ -7,20 +7,57 @@
   <div class="section-wrap">
     <div class="serch-row pb40 display-flex">
       <div class="search-container">
-        <form action="">
-          <input type="text" placeholder="Search.." name="search" />
+        <form action="{% url 'contacts:contact_list' %}" method="get">
+          <input type="text" placeholder="Search.." name="search" value="{{ request.GET.search }}" />
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
       <div class="btns-wrap">
-        <a href="{% url 'contacts:contact_create' %}" class="btn-1 btn-2" target="_blank">
+        <a href="{% url 'contacts:contact_list' %}" class="btn-1 btn-2" >
+          <span>Show All Contacts</span>
+        </a>
+        <a href="{% url 'contacts:contact_create' %}" class="btn-1 btn-2" >
           <span>Add New Contact</span>
         </a>
-        <button type="button" class="btn-1 btn-2">
-          <span>Upcoming Birthday</span>
-        </button>
+        <div class="pp-upc-bd pp-container mt w100">
+          <button type="button" class="btn-1 btn-2" onclick="document.getElementById('birthday-form').classList.toggle('hidden')">
+            <span>Upcoming Birthday</span>
+          </button>
+          <div id="birthday-form" class="pp-iner hidden">
+            <div class="days-input-wrap">
+              <form method="get" action="{% url 'contacts:upcoming_birthdays' %}">
+                <label for="interval">In what time interval?</label>
+                <input
+                  type="text"
+                  placeholder="Enter interval.."
+                  name="interval"
+                  required
+                />
+                <div class="btns-wrap display-flex">
+                  <button
+                    class="btn-1 btn-2"
+                    type="submit"
+                    title="Show"
+                  >
+                    <span>Show</span>
+                  </button>
+                  <button
+                    class="btn-1 btn-2"
+                    type="button"
+                    title="Close"
+                    onclick="document.getElementById('birthday-form').classList.add('hidden')"
+                  >
+                    <span>Close</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    {% if contacts %}
     <div class="table-wrapper">
       <div class="thead-bg"></div>
       <table>
@@ -37,37 +74,86 @@
         <tbody>
           {% for contact in contacts %}
           <tr>
-            <td>{{ contact.full_name }}</td>
-            <td>{{ contact.phone_number }}</td>
-            <td>{{ contact.address }}</td>
-            <td>{{ contact.birthday }}</td>
-            <td>{{ contact.email }}</td>
+            <td >
+              <div class="td-inner">
+                <p title="{{ contact.full_name }}">{{ contact.full_name }}</p>
+              </div>
+            </td>
+            <td data-th="Phone">
+              <div class="td-inner">
+                <p title="{{ contact.phone_number }}">{{ contact.phone_number }}</p>
+              </div>
+            </td>
+            <td data-th="Address">
+              <div class="td-inner">
+                <p title="{{ contact.address }}">
+                  {{ contact.address }}
+                </p>
+              </div>
+            </td>
+            <td data-th="Birthday">
+              <div class="td-inner">
+                <p title="{{ contact.birthday }}">{{ contact.birthday }}</p>
+              </div>
+            </td>
+            <td data-th="Email">
+              <div class="td-inner">
+                <p title="{{ contact.email }}">{{ contact.email }}</p>
+              </div>
+            </td>
             <td data-th="Changes">
               <div class="td-inner">
                 <div class="table-btns-wrap display-flex">
-                  <form action="{% url 'contacts:contact_delete' pk=contact.pk %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="table-btn delete-btn" title="Delete">
+                  <div class="delete-container pp-container">
+                    <button
+                      type="submit"
+                      class="table-btn delete-btn"
+                      title="Delete"
+                    >
                       <span class="for-screnReader">Delete</span>
                     </button>
-                  </form>
-                  <a href="{% url 'contacts:contact_update' pk=contact.pk %}" class="table-btn change-btn" title="Change">
+                    <div class="pp-iner hidden">
+                      <p class="center">Are you sure?</p>
+                      <div class="btns-wrap display-flex">
+                        <button
+                          class="btn-1 btn-2 close"
+                          type="submit"
+                          title="Are you sure?"
+                        >
+                          <span>yes</span>
+                        </button>
+                        <form action="{% url 'contacts:contact_delete' pk=contact.pk %}" method="post">
+                          {% csrf_token %}
+                          <button type="submit" title="Delete">
+                              Delete Contact
+                          </button>
+                      </form>
+                        <button
+                          class="btn-1 btn-2 close"
+                          type="submit"
+                          title="Delete"
+                        >
+                          <span>close</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="{% url 'contacts:contact_update' pk=contact.pk %}" class="table-btn chang-btn" title="Change">
                     <span class="for-screnReader">Change</span>
                   </a>
                 </div>
               </div>
             </td>
           </tr>
-          {% empty %}
-          <tr>
-            <td colspan="6">No contacts found.</td>
-          </tr>
           {% endfor %}
         </tbody>
       </table>
     </div>
+    {% else %}
+    <div class="no-contacts">
+      <h2>No contacts found</h2>
+    </div>
+    {% endif %}
   </div>
 </section>
 {% endblock %}
-
-

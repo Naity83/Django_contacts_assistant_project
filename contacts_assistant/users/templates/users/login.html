@@ -1,81 +1,9 @@
+{% extends 'contacts/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html class="no-js" lang="ua">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Personal Assistant</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="{% static 'contacts/images/favicon.webp' %}" rel="shortcut icon" type="image/x-icon" />
-    <link rel="stylesheet" href="{% static 'contacts/css/style.min.css' %}" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;500;600;700;800&display=swap" rel="stylesheet" />
-</head>
-<body id="topSection">
-    <div id="preloader">
-        <div id="status"></div>
-    </div>
-    <header class="floatingHeader">
-        <div class="section-wrap display-flex header-wrap">
-            <div class="logo">
-                <h1><img src="{% static 'contacts/images/logo.png' %}" alt="Personal Assistants" /></h1>
-            </div>
-            <div class="menu">
-                <input class="switcher" type="checkbox" id="menu" />
-                <label class="open" for="menu">
-                    <i class="fa fa-bars"></i>
-                </label>
-                <label class="close" for="menu">
-                    <i class="fa fa-times"></i>
-                </label>
-                <nav>
-                    <ul class="display-flex">
-                        <li class="nav-li menu-link">
-                            <a href="{% url 'users:signup' %}" target="_blank">
-                                <span>Sign up</span>
-                            </a>
-                        </li>
-                        <li class="nav-li menu-link">
-                            <button type="button">
-                                <span>Log in</span>
-                            </button>
-                        </li>
-                        <li class="nav-li menu-link">
-                            <button type="button">
-                                <span>Log out</span>
-                            </button>
-                        </li>
-                        <li class="nav-li menu-link">
-                            <button type="button">
-                                <span>Contact</span>
-                            </button>
-                        </li>
-                        <li class="nav-li menu-link">
-                            <button type="button">
-                                <span>Files</span>
-                            </button>
-                        </li>
-                        <li class="nav-li menu-link">
-                            <button type="button">
-                                <span>News</span>
-                            </button>
-                        </li>
-                        <li class="nav-li menu-link">
-                            <button type="button">
-                                <span>Notes</span>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <main>
+{% block content %}
         <!-- LOGIN --->
-        <section id="login" class="section section-login">
+        <section id="login" class="section section-register">
             <div class="section-wrap display-flex">
                 <div class="cont-wrap">
                     <div class="form-stile1 mr50">
@@ -101,12 +29,4 @@
                 <img src="{% static 'contacts/images/r4.webp' %}" class="images-assistant" alt="" />
             </div>
         </section>
-    </main>
-    <a href="#topSection" title="повернутися вгору" class="backToTop">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-        <span>повернутися вгору</span>
-    </a>
-    <script src="{% static 'contacts/scripts/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'contacts/scripts/main.js' %}"></script>
-</body>
-</html>
+        {% endblock %}

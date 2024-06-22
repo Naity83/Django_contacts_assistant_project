@@ -19,15 +19,14 @@ class Contact(models.Model):
         return f"{self.full_name}"
 
     @staticmethod
-    def get_contacts_with_upcoming_birthdays(days):
-        today = date.today()
-        upcoming_date = today + timedelta(days=days)
-        return Contact.objects.filter(birthday__month=upcoming_date.month, birthday__day=upcoming_date.day)
-
-    @staticmethod
     def get_upcoming_birthdays(days):
         today = date.today()
         upcoming_date = today + timedelta(days=days)
-        return Contact.objects.filter(birthday__gte=today, birthday__lte=upcoming_date)
-
+        # Фильтр для получения контактов, у которых день рождения в диапазоне от сегодняшнего дня до заданного числа дней
+        return Contact.objects.filter(
+            birthday__month__gte=today.month,
+            birthday__month__lte=upcoming_date.month,
+            birthday__day__gte=today.day,
+            birthday__day__lte=upcoming_date.day
+        )
 

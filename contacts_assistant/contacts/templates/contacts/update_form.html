@@ -1,0 +1,107 @@
+{% extends 'contacts/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- add-new-contact --->
+<section id="register" class="section section-register add-new-contact">
+    <div class="section-wrap display-flex">
+        <div class="cont-wrap">
+            <div class="form-stile1 mr50">
+                <form id="contactForm" name="contactForm" method="post" role="form">
+                    {% csrf_token %}
+                    <legend>Add New Contact</legend>
+                    <div class="container">
+                        {% if form.errors %}
+                        <div class="form-errors">
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        <div class="form-item display-flex">
+                            <label for="id_full_name">Name</label>
+                            <span class="field-help">Enter full name</span>
+                            {{ form.full_name }}
+                            {% if form.full_name.errors %}
+                            <div class="field-errors">
+                                <ul>
+                                    {% for error in form.full_name.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-item display-flex">
+                            <label for="id_phone_number">Phone</label>
+                            <span class="field-help">Enter phone number in the format: +999999999</span>
+                            {{ form.phone_number }}
+                            {% if form.phone_number.errors %}
+                            <div class="field-errors">
+                                <ul>
+                                    {% for error in form.phone_number.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-item display-flex">
+                            <label for="id_address">Address</label>
+                            <span class="field-help">Enter address</span>
+                            {{ form.address }}
+                            {% if form.address.errors %}
+                            <div class="field-errors">
+                                <ul>
+                                    {% for error in form.address.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-item display-flex">
+                            <label for="id_birthday">Birthday</label>
+                            <span class="field-help">Enter birthday in the format: YYYY-MM-DD</span>
+                            {{ form.birthday }}
+                            {% if form.birthday.errors %}
+                            <div class="field-errors">
+                                <ul>
+                                    {% for error in form.birthday.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-item display-flex">
+                            <label for="id_email">Email</label>
+                            <span class="field-help">Enter a valid email address</span>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                            <div class="field-errors">
+                                <ul>
+                                    {% for error in form.email.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="btns-wrap">
+                            <button type="submit" class="btn-1 width-auto">
+                                <span>Update Contact</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <img src="{% static 'contacts/images/r3.webp' %}" class="images-assistant" alt="" />
+    </div>
+</section>
+{% endblock %}
