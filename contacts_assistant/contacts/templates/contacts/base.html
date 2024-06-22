@@ -1,6 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
-<html class="no-js" lang="ua">
+<html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -8,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
     <link href="{% static 'contacts/images/favicon.webp' %}" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'contacts/css/style.min.css' %}" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -49,9 +49,9 @@
                 </button> 
               </li> 
               <li class="nav-li menu-link"> 
-                <button type="button" class="btn-2"> 
+                <a href="{% url 'notes:notes_main' %}" class="btn-2">
                   <span>notes</span> 
-                </button> 
+                </a>
               </li>
               <li class="nav-li menu-link">
                 <form method="post" action="{% url 'users:logout' %}">
@@ -80,12 +80,58 @@
         {% block content %}
         {% endblock %}
     </main>
-    <a href="#topSection" title="повернутися вгору" class="backToTop">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-        <span>повернутися вгору</span>
+
+    <a href="#topSection" title="go back up" class="backToTop">
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+      <span>go back up</span>
     </a>
+
     <script src="{% static 'contacts/scripts/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'contacts/scripts/main.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+<!--    <script>-->
+<!--      $(document).ready(function () {-->
+<!--        // Initialize the chosen plugin for the tags select box-->
+<!--        $(".chosen-select").chosen();-->
+
+<!--        // Handle the form submission-->
+<!--        $("#note-form").on("submit", function (event) {-->
+<!--          event.preventDefault();-->
+
+<!--          // Get the form data-->
+<!--          const title = $("#note-title").val();-->
+<!--          let tags = $("#note-tags").val();-->
+<!--          const newTag = $("#new-tag").val();-->
+<!--          const description = $("#note-description").val();-->
+
+<!--          // If there's a new tag, add it to the tags array-->
+<!--          if (newTag) {-->
+<!--            tags.push(newTag);-->
+
+<!--            // Add the new tag to the select box and refresh chosen-->
+<!--            $("#note-tags").append(-->
+<!--              `<option value="${newTag}" selected>${newTag}</option>`-->
+<!--            );-->
+<!--            $("#note-tags").trigger("chosen:updated");-->
+<!--          }-->
+
+<!--          // Create the note object-->
+<!--          const note = {-->
+<!--            title: title,-->
+<!--            tags: tags,-->
+<!--            description: description,-->
+<!--          };-->
+
+<!--          // For demonstration purposes, log the note object to the console-->
+<!--          console.log(note);-->
+
+<!--          // Reset the form-->
+<!--          this.reset();-->
+<!--          $(".chosen-select").val("").trigger("chosen:updated");-->
+<!--        });-->
+<!--      });-->
+<!--    </script>-->
 </body>
 </html>
 

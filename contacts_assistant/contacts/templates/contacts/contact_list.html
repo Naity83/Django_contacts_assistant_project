@@ -115,17 +115,11 @@
                     <div class="pp-iner hidden">
                       <p class="center">Are you sure?</p>
                       <div class="btns-wrap display-flex">
-                        <button
-                          class="btn-1 btn-2 close"
-                          type="submit"
-                          title="Are you sure?"
-                        >
-                          <span>yes</span>
-                        </button>
+                        
                         <form action="{% url 'contacts:contact_delete' pk=contact.pk %}" method="post">
                           {% csrf_token %}
-                          <button type="submit" title="Delete">
-                              Delete Contact
+                          <button class="btn-1 btn-2 " type="submit" title="Delete">
+                              <span>yes</span>
                           </button>
                       </form>
                         <button
