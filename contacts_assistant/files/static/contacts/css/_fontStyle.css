@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'mixtape';
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/mixtape-aaa-400.eot");
+  src: url("../fonts/mixtape-aaa-400.?#iefix") format("embedded-opentype"), url("../fonts/mixtape-aaa-400.ttf") format("truetype"), url("../fonts/mixtape-aaa-400.woff") format("woff"), url("../fonts/mixtape-aaa-400.svg#mixtape") format("svg");
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'mixtape';
+    src: url("../fonts/mixtape-aaa-400.svg#mixtape-regular") format("svg");
+  }
+}
+
+@font-face {
+  font-family: 'Assistant';
+  src: url("../fonts/Assistant-ExtraBold.eot");
+  src: url("../fonts/Assistant-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Assistant-ExtraBold.woff") format("woff"), url("../fonts/Assistant-ExtraBold.woff2") format("woff2"), url("../fonts/Assistant-ExtraBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Assistant';
+  src: url("../fonts/Assistant-Bold.eot");
+  src: url("../fonts/Assistant-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Assistant-Bold.woff") format("woff"), url("../fonts/Assistant-Bold.woff2") format("woff2"), url("../fonts/Assistant-Bold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Assistant';
+  src: url("../fonts/Assistant-SemiBold.eot");
+  src: url("../fonts/Assistant-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Assistant-SemiBold.woff") format("woff"), url("../fonts/Assistant-SemiBold.woff2") format("woff2"), url("../fonts/Assistant-SemiBold.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Assistant';
+  src: url("../fonts/Assistant-Regular.eot");
+  src: url("../fonts/Assistant-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Assistant-Regular.woff") format("woff"), url("../fonts/Assistant-Regular.woff2") format("woff2"), url("../fonts/Assistant-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Assistant';
+  src: url("../fonts/Assistant-Light.eot");
+  src: url("../fonts/Assistant-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Assistant-Light.woff") format("woff"), url("../fonts/Assistant-Light.woff2") format("woff2"), url("../fonts/Assistant-Light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Assistant';
+  src: url("../fonts/Assistant-ExtraLight.eot");
+  src: url("../fonts/Assistant-ExtraLight.eot?#iefix") format("embedded-opentype"), url("../fonts/Assistant-ExtraLight.woff") format("woff"), url("../fonts/Assistant-ExtraLight.woff2") format("woff2"), url("../fonts/Assistant-ExtraLight.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
