@@ -4,12 +4,14 @@ from .models import Contact
 from .forms import ContactForm
 from django.db.models import Q
 from django.http import HttpResponseBadRequest
+from django.contrib.auth.decorators import login_required
 
 logger = logging.getLogger(__name__)
 
 def main(request):
     return render(request, 'contacts/index.html')
 
+@login_required
 def contact_list(request):
     query = request.GET.get('search')
     if query:
@@ -28,6 +30,7 @@ def contact_list(request):
     return render(request, 'contacts/contact_list.html', context)
 
 
+@login_required
 def contact_create(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -45,6 +48,7 @@ def contact_create(request):
     return render(request, 'contacts/contact_form.html', {'form': form})
 
 
+@login_required
 def contact_update(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     if request.method == 'POST':
@@ -56,6 +60,7 @@ def contact_update(request, pk):
         form = ContactForm(instance=contact)
     return render(request, 'contacts/update_form.html', {'form': form})
 
+@login_required
 def contact_delete(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     if request.method == 'POST':
@@ -64,6 +69,7 @@ def contact_delete(request, pk):
     # Обработка GET запроса для отображения страницы удаления контакта
     return render(request, 'contacts/contact_delete.html', {'contact': contact})
 
+@login_required
 def upcoming_birthdays(request):
     if request.method == 'GET':
         interval = request.GET.get('interval')

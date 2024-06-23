@@ -21,3 +21,7 @@ docker run --name contacts_assistant -p 5432:5432 -e POSTGRES_PASSWORD=150209 -d
 
 Перші міграції:
 python manage.py migrate
+
+
+Запустити фейкові контакти можна командою:
+python manage.py faker_contacts
