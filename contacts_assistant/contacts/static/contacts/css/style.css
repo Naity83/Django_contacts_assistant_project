@@ -3578,12 +3578,9 @@ img {
   background: #5a57a6;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: opacity 0.3s 0s,
- visibility 0s 0.3s;
-  -moz-transition: opacity 0.3s 0s,
- visibility 0s 0.3s;
-  transition: opacity 0.3s 0s,
- visibility 0s 0.3s;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;
   border: 1px solid #5a57a6;
 }
 
