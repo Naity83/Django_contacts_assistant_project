@@ -5,6 +5,25 @@ $(window).on('load', function() { // makes sure the whole site is loaded
 })
 
 $(document).ready(function () {
+
+  // pp-container
+
+  $('.upcoming-birthday').on('click', function(e) {
+    e.preventDefault();
+      $(this).siblings('.pp-iner').removeClass('hidden');
+  });
+
+  $('.delete-btn').on('click', function(e) {
+    e.preventDefault();
+      $(this).siblings('.pp-iner').removeClass('hidden');
+  });
+
+  $('.close').on('click', function(e) {
+      e.preventDefault();
+      $(this).closest('.pp-iner').addClass('hidden');
+  });
+
+  //end pp-container
  
   $('.menu-link').click(function() {
       $('#menu').prop('checked', false); // Забезпечити закриття меню
