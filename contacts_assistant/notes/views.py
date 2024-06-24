@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import TagForm, NoteForm
@@ -7,6 +8,13 @@ from .models import Tag, Note
 # Create your views here.
 def notes_main(request):
     notes = Note.objects.all()
+    query = request.GET.get('search')
+    if query:
+        notes = Note.objects.filter(
+                                    Q(name__icontains=query) |
+                                    Q(description__icontains=query)
+                                    )
+
     return render(request, 'notes/note_base.html', {"notes": notes})
 
 
