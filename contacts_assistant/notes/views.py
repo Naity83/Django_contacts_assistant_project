@@ -9,11 +9,13 @@ from .models import Tag, Note
 def notes_main(request):
     notes = Note.objects.all()
     query = request.GET.get('search')
+
     if query:
-        notes = Note.objects.filter(
-                                    Q(name__icontains=query) |
-                                    Q(description__icontains=query)
-                                    )
+        notes = notes.filter(
+                            Q(name__icontains=query) |
+                            Q(description__icontains=query) |
+                            Q(tags__name__icontains=query)
+                            )
 
     return render(request, 'notes/note_base.html', {"notes": notes})
 
@@ -24,7 +26,7 @@ def add_tag(request):
         form = TagForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(to='notes:notes_main')
+            return redirect(to='notes:note_add')
         else:
             return render(request, 'notes/tag_add.html', {"tags": tags, 'form': form})
 
