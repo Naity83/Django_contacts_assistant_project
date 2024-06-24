@@ -14,13 +14,13 @@ $p-purple: #5a57a6;
 @import "_font-awesome.scss";
 
 html {
-  font-family: "Assistant", "Arial", sans-serif;
+  font-family: "Assistant", "Arial", sans-serif !important;
   line-height: 1.15;
   direction: ltr;
 }
 
 body {
-  font-family: "Assistant", "Arial", sans-serif;
+  font-family: "Assistant", "Arial", sans-serif !important;
   margin: 0;
   padding: 0;
   color: #fff;
@@ -44,6 +44,10 @@ body {
 
 :focus {
   outline: 0px solid #000;
+}
+
+*:not([class*='fa-']) {
+  font-family: "Assistant", "Arial", sans-serif;
 }
 
 a {
