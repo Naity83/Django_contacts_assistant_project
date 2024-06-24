@@ -1,0 +1,104 @@
+{% extends 'contacts/base.html' %}
+{% load static %}
+{% load extract %}
+
+{% block content %}
+<section id="signup" class="section section-table section-notes">
+    <div class="section-wrap">
+      <div class="serch-row pb40 display-flex">
+        <div class="search-container">
+          <form action="">
+            <input type="text" placeholder="Search.." name="search" />
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+        <div class="btns-wrap">
+          <a href="{% url 'notes:note_add' %}" class="btn-1 btn-2" target="_blank">
+            <span>add new notes</span>
+          </a>
+            <a href="{% url 'notes:add_tag' %}" class="btn-1 btn-2" target="_blank">
+                <span>add new tag</span>
+            </a>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date of Create</th>
+              <th>Tag</th>
+              <th>Description</th>
+              <th>Changes</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for note in notes %}
+            <tr>
+              <td data-th="Title">
+                <div class="td-inner">
+                  <p title="{{note.name}}">{{note.name}}</p>
+                </div>
+              </td>
+              <td data-th="Date of Create">
+                <div class="td-inner">
+                  <p title="{{note.created}}">{{note.created}}</p>
+                </div>
+              </td>
+              <td data-th="Tag">
+                <div class="td-inner">
+                  <p title="{{note.tags|tags}}">{{note.tags|tags}}</p>
+                </div>
+              </td>
+              <td data-th="Description">
+                <div class="td-inner">
+                  <p title="Discuss project requirements and next steps.">
+                    {{note.description}}
+                  </p>
+                </div>
+              </td>
+              <td data-th="Changes">
+                <div class="td-inner">
+                  <div class="table-btns-wrap display-flex">
+                    <div class="delete-container pp-container">
+                    <button
+                      type="submit"
+                      class="table-btn delete-btn"
+                      title="Delete"
+                    >
+                      <span class="for-screnReader">Delete</span>
+                    </button>
+                    <div class="pp-iner hidden">
+                      <p class="center">Are you sure?</p>
+                      <div class="btns-wrap display-flex">
+
+                        <form action="{% url 'notes:delete_note' pk=note.pk %}" method="post">
+                          {% csrf_token %}
+                          <button class="btn-1 btn-2 " type="submit" title="Delete">
+                              <span>yes</span>
+                          </button>
+                      </form>
+                        <button
+                          class="btn-1 btn-2 close"
+                          type="submit"
+                          title="Delete"
+                        >
+                          <span>close</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                    <a href="{% url 'notes:note_update' pk=note.id %}" class="table-btn chang-btn" title="Change">
+                      <span class="for-screnReader">Change</span>
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+</section>
+{% endblock %}
