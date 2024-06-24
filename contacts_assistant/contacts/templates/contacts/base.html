@@ -53,9 +53,9 @@
                 </button> 
               </li> 
               <li class="nav-li menu-link"> 
-                <button type="button" class="btn-2"> 
+                <a href="{% url 'notes:notes_main' %}" type="button" class="btn-2">
                   <span>notes</span> 
-                </button> 
+                </a>
               </li>
               <li class="nav-li menu-link">
                 <form method="post" action="{% url 'users:logout' %}">
