@@ -9,14 +9,15 @@ from .models import Tag, Note
 # Create your views here.
 @login_required
 def notes_main(request):
-    notes = Note.objects.filter(user=request.user).all()
+    notes = Note.objects.filter(user=request.user)
     query = request.GET.get('search')
 
     if query:
         notes = notes.filter(
                             Q(name__icontains=query) |
                             Q(description__icontains=query) |
-                            Q(tags__name__icontains=query)
+                            Q(tags__name__icontains=query),
+                            user=request.user
                             )
 
     return render(request, 'notes/note_base.html', {"notes": notes})
@@ -28,7 +29,9 @@ def add_tag(request):
     if request.method == 'POST':
         form = TagForm(request.POST)
         if form.is_valid():
-            form.save()
+            tag = form.save(commit=False)
+            tag.user = request.user  # Присваивание текущего пользователя
+            tag.save()
             return redirect(to='notes:note_add')
         else:
             return render(request, 'notes/tag_add.html', {"tags": tags, 'form': form})
@@ -42,7 +45,9 @@ def note_add(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
-            new_note = form.save()
+            new_note = form.save(commit=False)
+            new_note.user = request.user  # Присваивание текущего пользователя
+            new_note.save()
             choice_tags = Tag.objects.filter(name__in=request.POST.getlist('tags'), user=request.user)
             for tag in choice_tags.iterator():
                 new_note.tags.add(tag)
