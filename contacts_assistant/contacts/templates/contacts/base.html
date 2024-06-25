@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="ua">
 <head>
@@ -8,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
     <link href="{% static 'contacts/images/favicon.webp' %}" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'contacts/css/style.min.css' %}" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -39,7 +39,7 @@
                   </a>
               </li> 
               <li class="nav-li menu-link"> 
-                 <a href="{% url 'files:all_my_files' %}" class="btn-2" >
+                 <a href="{% url 'files:file_list' %}" class="btn-2" >
                   <span>files</span> 
                 </a>
               </li> 

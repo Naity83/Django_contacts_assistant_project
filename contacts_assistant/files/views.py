@@ -16,7 +16,7 @@ def upload_file(request):
             return redirect('file_list')
     else:
         form = MyFileForm()
-    return render(request, 'upload.html', {'form': form})
+    return render(request, 'files/upload_files.html', {'form': form})
 
 
 def file_list(request):
@@ -26,7 +26,7 @@ def file_list(request):
     if order == 'desc':
         sort_by = '-' + sort_by
     files = files.order_by(sort_by)
-    return render(request, 'file_list.html', {'files': files})
+    return render(request, 'files/files.html', {'files': files})
 
 
 def delete_file(request, pk):
