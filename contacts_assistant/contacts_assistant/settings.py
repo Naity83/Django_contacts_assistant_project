@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'contacts',
     'notes',
     'users',
-    'files',
+    'my_files'
     'news',
 ]
 
