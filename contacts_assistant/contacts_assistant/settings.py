@@ -139,3 +139,13 @@ LOGIN_REDIRECT_URL = "/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# settings.py
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLD_NAME'),
+    'API_KEY': os.getenv('CLD_API_KEY'),
+    'API_SECRET': os.getenv('CLD_API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

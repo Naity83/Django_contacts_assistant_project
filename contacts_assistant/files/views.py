@@ -1,23 +1,35 @@
-from django.shortcuts import render, redirect
+# from django.shortcuts import render, redirect
+# import cloudinary
+# from .forms import MyFileForm
+# from .models import MyFile
 
-from .forms import MyFileForm
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import MyFile
+from .forms import MyFileForm
 
 
-def index(request):
-    return render(request, 'files/index.html', context={"msg": "Hello world!"})
-
-
-def all_files(request):
-    my_files = MyFile.objects.all()
-    return render(request, 'files/files.html', context={"files": my_files})
-
-
-def upload(request):
-    form = MyFileForm(instance=MyFile())
+def upload_file(request):
     if request.method == 'POST':
-        form = MyFileForm(request.POST, request.FILES, instance=MyFile())
+        form = MyFileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(to="files:files")
-    return render(request, 'files/upload.html', context={"form": form})
+            return redirect('file_list')
+    else:
+        form = MyFileForm()
+    return render(request, 'upload.html', {'form': form})
+
+
+def file_list(request):
+    files = MyFile.objects.all()
+    sort_by = request.GET.get('sort_by', 'name')
+    order = request.GET.get('order', 'asc')
+    if order == 'desc':
+        sort_by = '-' + sort_by
+    files = files.order_by(sort_by)
+    return render(request, 'file_list.html', {'files': files})
+
+
+def delete_file(request, pk):
+    file = get_object_or_404(MyFile, pk=pk)
+    file.delete()
+    return redirect('file_list')

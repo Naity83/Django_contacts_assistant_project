@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Personal Assistant</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="./images/favicon.webp"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/style.min.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="topSection">
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+
+    <header class="floatingHeader">
+      <div class="section-wrap display-flex header-wrap">
+        <div class="logo">
+          <h1><img src="./images/logo.png" alt="Personal Assistants" /></h1>
+        </div>
+        <div class="menu">
+          <input class="switcher" type="checkbox" id="menu" />
+          <label class="open" for="menu">
+            <i class="fa fa-bars"></i>
+          </label>
+
+          <label class="close" for="menu">
+            <i class="fa fa-times"></i>
+          </label>
+          <nav>
+            <ul class="display-flex">
+              <li class="nav-li menu-link">
+                <a href="" target="_blank">
+                  <span>sign up</span>
+                </a>
+              </li>
+              <li class="nav-li menu-link">
+                <button type="button">
+                  <span>log in</span>
+                </button>
+              </li>
+              <li class="nav-li menu-link">
+                <button type="button">
+                  <span>log out</span>
+                </button>
+              </li>
+              <li class="nav-li menu-link">
+                <button type="button">
+                  <span>contact</span>
+                </button>
+              </li>
+              <li class="nav-li menu-link">
+                <button type="button">
+                  <span>files</span>
+                </button>
+              </li>
+              <li class="nav-li menu-link">
+                <button type="button">
+                  <span>news</span>
+                </button>
+              </li>
+              <li class="nav-li menu-link">
+                <button type="button">
+                  <span>notes</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- upload-files --->
+      <section id="register" class="section section-register upload-files">
+        <div class="section-wrap display-flex">
+          <div class="cont-wrap">
+            <div class="form-stile1 mr50">
+              <form id="loginForm" name="loginForm" role="form">
+                <legend>upload files</legend>
+                <div class="container">
+                  <div class="form-item display-flex">
+                    <label for="files-name">Files name</label>
+                    <input
+                      id="files-name"
+                      name="files-name"
+                      type="text"
+                      placeholder="Enter files name"
+                      required
+                    />
+                  </div>
+                  <div class="form-item display-flex">
+                    <label for="files-description">Files description</label>
+                    <textarea
+                      name="files-description"
+                      placeholder="Enter Description..."
+                    ></textarea>
+                  </div>
+
+                  <div class="form-item display-flex file-upload">
+                    <p class="label">Upload file</p>
+                    <label class="file-upload__label" for="file-upload"
+                      ><span class="upload__label labelName">
+                        <span class="path">Choose file</span>
+                        </label>
+                    <input
+                      id="file-upload"
+                      class="file-upload__input"
+                      type="file"
+                      name="file"
+                    />
+                  </div>
+                  <div class="btns-wrap">
+                    <!-- <a href="" class="btn-1" target="_blank">
+                  <span>sign in</span>
+                </a> -->
+                    <button type="button" class="btn-1">
+                      <span>upload files</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <img src="./images/r12.webp" class="images-assistant" alt="" />
+        </div>
+      </section>
+    </main>
+
+    <a href="#topSection" title="go back up" class="backToTop">
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+      <span>go back up</span>
+    </a>
+
+    <script src="./scripts/jquery-3.3.1.min.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
