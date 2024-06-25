@@ -1,0 +1,25 @@
+{% extends 'contacts/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="signup" class="section section-table section-news">
+    <div class="section-wrap">
+        <div>
+            <h2 class="pb40">News</h2>
+        </div>
+        <div class="news-wrap">
+            {% for article in articles %}
+            <div class="news-box">
+                <p>{{ article.title }}</p>
+                <p><strong>Published Date:</strong> {{ article.published_date }}</p>
+                <div class="btns-wrap display-flex">
+                    <a class="btn-1 btn-2" href="{{ article.url }}" target="_blank">
+                        <span>Read more</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
