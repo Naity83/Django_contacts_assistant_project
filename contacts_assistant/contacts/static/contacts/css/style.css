@@ -3406,11 +3406,19 @@ button:focus {
 
 .form-stile1 legend {
   text-align: left;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 45px;
+  line-height: 55px;
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .form-stile1 legend {
+    font-size: 37px;
+    line-height: 43px;
+    text-align: center;
+  }
 }
 
 .form-stile1 .container .form-item.display-flex {
@@ -3428,6 +3436,7 @@ button:focus {
   font-weight: 400;
   padding-bottom: 5px;
   margin: 0;
+  width: 100%;
 }
 
 .form-stile1 .container .form-item input,
@@ -3499,6 +3508,20 @@ button:focus {
 
 .form-stile1 .container .btns-wrap {
   justify-content: flex-start;
+  padding-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .form-stile1 .container .btns-wrap {
+    padding-top: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-stile1 .container .btns-wrap .btn-1,
+  .form-stile1 .container .btns-wrap .width-auto {
+    width: 100%;
+  }
 }
 
 .form-stile1 .container.form-inner label {
@@ -4046,11 +4069,19 @@ header.floating {
 
 .section h2.h2-smaller {
   text-align: left;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 45px;
+  line-height: 55px;
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .section h2.h2-smaller {
+    font-size: 37px;
+    line-height: 43px;
+    text-align: center;
+  }
 }
 
 @media (max-width: 1024px) {
