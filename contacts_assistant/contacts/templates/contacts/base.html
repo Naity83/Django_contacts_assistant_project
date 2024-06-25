@@ -1,6 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
-<html class="no-js" lang="ua">
+<html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -8,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
     <link href="{% static 'contacts/images/favicon.webp' %}" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'contacts/css/style.min.css' %}" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -84,9 +84,9 @@
         {% block content %}
         {% endblock %}
     </main>
-    <a href="#topSection" title="повернутися вгору" class="backToTop">
+    <a href="#topSection" title="up" class="backToTop">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
-        <span>повернутися вгору</span>
+        <span>up</span>
     </a>
     <script src="{% static 'contacts/scripts/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'contacts/scripts/main.js' %}"></script>
