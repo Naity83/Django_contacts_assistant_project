@@ -19,10 +19,11 @@ def contact_list(request):
             Q(full_name__icontains=query) |
             Q(phone_number__icontains=query) |
             Q(address__icontains=query) |
-            Q(email__icontains=query)
+            Q(email__icontains=query),
+            user=request.user  # Добавлено фильтрация по пользователю
         )
     else:
-        contacts = Contact.objects.all()
+        contacts = Contact.objects.filter(user=request.user)  # Добавлено фильтрация по пользователю
     
     context = {
         'contacts': contacts
@@ -36,7 +37,7 @@ def contact_create(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             contact = form.save(commit=False)
-            contact.user = request.user
+            contact.user = request.user  # Присваивание текущего пользователя
             contact.save()
             logger.info('Contact created successfully')
             return redirect('contacts:contact_list')
@@ -50,7 +51,7 @@ def contact_create(request):
 
 @login_required
 def contact_update(request, pk):
-    contact = get_object_or_404(Contact, pk=pk)
+    contact = get_object_or_404(Contact, pk=pk, user=request.user)  # Добавлено фильтрация по пользователю
     if request.method == 'POST':
         form = ContactForm(request.POST, instance=contact)
         if form.is_valid():
@@ -62,7 +63,7 @@ def contact_update(request, pk):
 
 @login_required
 def contact_delete(request, pk):
-    contact = get_object_or_404(Contact, pk=pk)
+    contact = get_object_or_404(Contact, pk=pk, user=request.user)  # Добавлено фильтрация по пользователю
     if request.method == 'POST':
         contact.delete()
         return redirect('contacts:contact_list')
@@ -81,7 +82,7 @@ def upcoming_birthdays(request):
         except ValueError:
             return HttpResponseBadRequest("Parameter 'interval' must be an integer.")
 
-        upcoming_contacts = Contact.get_upcoming_birthdays(days)
+        upcoming_contacts = Contact.get_upcoming_birthdays(days).filter(user=request.user)  # Добавлено фильтрация по пользователю
         return render(request, 'contacts/contact_list.html', {'contacts': upcoming_contacts})
     else:
         return HttpResponseBadRequest("Only GET requests are allowed.")
