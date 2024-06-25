@@ -1,0 +1,21 @@
+{% extends "contacts/base.html" %}
+{% load static%}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мій сайт</title>
+</head>
+<body>
+    <h1>Інформація з JSON файлу</h1>
+    {% for article in articles %}
+    <div class="article-container">
+        <h2 class="article-title">{{ article.title }}</h2>
+        <a class="article-link" href="{{ article.url }}">Читати статтю</a>
+    </div>
+    {% endfor %}
+</body>
+</html>
+{% endblock %}
