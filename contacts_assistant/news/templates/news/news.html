@@ -25,5 +25,22 @@
             {% endif %}
         </div>
     </div>
+    <h2>Currency Exchange Rates</h2>
+
+    <div>
+        {% if valute_data %}
+            <p>Date: {{ valute_data.date }}</p>
+            <p>Bank: {{ valute_data.bank }}</p>
+            <p>Base Currency Literal: {{ valute_data.baseCurrencyLit }}</p>
+            <h3>Exchange Rates:</h3>
+            <ul>
+                {% for rate in valute_data.exchangeRate %}
+                    <li>{{ rate.currency }} - Sale Rate: {{ rate.saleRateNB }}, Purchase Rate: {{ rate.purchaseRateNB }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No exchange rate data available.</p>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}

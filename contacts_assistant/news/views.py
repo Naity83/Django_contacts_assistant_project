@@ -3,6 +3,7 @@ import os
 import json
 import datetime
 from .main_news import get_content 
+from .valute_news import get_exchange_rates
 from .models import Article
 
 def index(request):
@@ -13,7 +14,8 @@ def index(request):
     
     # Собираем свежие данные с сайта
     get_content(url)
-    
+    valute_data = get_exchange_rates()  # Получаем данные о курсах валют
+
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     json_file_path = os.path.join(base_dir, 'news', 'pravda_com_ua.json')
 
@@ -31,7 +33,7 @@ def index(request):
             )
 
         articles = Article.objects.all()
-        return render(request, 'news/news.html', {'articles': articles})
+        return render(request, 'news/news.html', {'articles': articles, 'valute_data': valute_data})
     except FileNotFoundError:
         return render(request, 'news/news.html', {'error': 'Файл с новостями не найден.'})
     except json.JSONDecodeError:
