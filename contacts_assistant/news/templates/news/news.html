@@ -1,46 +1,61 @@
-{% extends 'contacts/base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'contacts/base.html' %} {% load static %} {% block content %}
 <section id="signup" class="section section-table section-news">
-    <div class="section-wrap">
-        <div>
-            <h2 class="pb40">News</h2>
-        </div>
-        <div class="news-wrap">
-            {% if error %}
-                <p>{{ error }}</p>
-            {% else %}
-                {% for article in articles %}
-                <div class="news-box">
-                    <p>{{ article.title }}</p>
-                    <p><strong>Published Date:</strong> {{ article.published_date }}</p>
-                    <div class="btns-wrap display-flex">
-                        <a class="btn-1 btn-2" href="{{ article.url }}" target="_blank">
-                            <span>Read more</span>
-                        </a>
-                    </div>
-                </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-    <h2>Currency Exchange Rates</h2>
+  <div class="section-wrap">
+    <div class="currency-wrap">
+      <h2>Currency Exchange Rates</h2>
 
-    <div>
+      <div>
         {% if valute_data %}
-            <p>Date: {{ valute_data.date }}</p>
-            <p>Bank: {{ valute_data.bank }}</p>
-            <p>Base Currency Literal: {{ valute_data.baseCurrencyLit }}</p>
-            <h3>Exchange Rates:</h3>
-            <ul>
-                {% for rate in valute_data.exchangeRate %}
-                    <li>{{ rate.currency }} - Sale Rate: {{ rate.saleRateNB }}, Purchase Rate: {{ rate.purchaseRateNB }}</li>
-                {% endfor %}
-            </ul>
+        <p>Date: {{ valute_data.date }}</p>
+        <p>Bank: {{ valute_data.bank }}</p>
+        <p>Base Currency Literal: {{ valute_data.baseCurrencyLit }}</p>
+        <h3>Exchange Rates:</h3>
+        <ul>
+          {% for rate in valute_data.exchangeRate %}
+          <li>
+            {{ rate.currency }} - Sale Rate: {{ rate.saleRateNB }}, Purchase
+            Rate: {{ rate.purchaseRateNB }}
+          </li>
+          {% endfor %}
+        </ul>
         {% else %}
-            <p>No exchange rate data available.</p>
+        <p>No exchange rate data available.</p>
         {% endif %}
+      </div>
     </div>
+    <div class="news-wrap">
+      <div>
+        <h2 class="pb40">News</h2>
+      </div>
+      <div class="news-boxs">
+        {% if error %}
+        <p class="error-p">{{ error }}</p>
+        {% else %} {% for article in articles %}
+        <div class="news-box">
+          <h3 title="{{ article.title }}">{{ article.title }}</h3>
+          <p><strong>Published Date:</strong> {{ article.published_date }}</p>
+          <div class="btns-wrap display-flex">
+            <a class="btn-1 btn-2" href="{{ article.url }}" target="_blank">
+              <span>Read more</span>
+            </a>
+          </div>
+        </div>
+        {% endfor %} {% endif %}
+      </div>
+      <nav class="pager-wrap">
+        <ul class="pager">
+          <li class="previous">
+            <!-- class="{% if not quotes.has_previous %} disabled {% endif %}"
+                href="{% if quotes.has_previous %} {% url 'quotes:root_paginate' quotes.previous_page_number %} {% else %} # {% endif %}" -->
+            <a class="" href=""> <span aria-hidden="true">←</span> Previous </a>
+          </li>
+
+          <li class="next">
+            <a class="" href="">Next <span aria-hidden="true">→</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </section>
 {% endblock %}

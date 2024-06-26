@@ -4487,107 +4487,103 @@ header.floating {
   }
 }
 
-.section-table.section-news .section-wrap .news-wrap .news-iner {
-  align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.section-table.section-news .section-wrap .news-wrap .news-iner .news-box {
+.section-table.section-news .section-wrap .news-wrap .news-boxs {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
-  justify-content: center;
-  max-width: 23%;
-  min-width: 23%;
-  height: 100%;
-  margin-right: 33px;
-  margin-bottom: 50px;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-@media (max-width: 1400px) {
-  .section-table.section-news .section-wrap .news-wrap .news-iner .news-box {
-    max-width: 32%;
-    min-width: 32%;
-    margin-right: 15px;
+@media (max-width: 1279px) {
+  .section-table.section-news .section-wrap .news-wrap .news-boxs {
+    flex-direction: column;
   }
 }
 
-@media (max-width: 900px) {
-  .section-table.section-news .section-wrap .news-wrap .news-iner .news-box {
-    max-width: 100%;
-    width: 100%;
-    margin-right: 0px;
+.section-table.section-news .section-wrap .news-wrap .news-boxs .error-p {
+  min-width: 100vh;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+@media (max-width: 1279px) {
+  .section-table.section-news .section-wrap .news-wrap .news-boxs .error-p {
+    min-width: unset;
   }
 }
 
-@media (max-width: 1400px) {
-  .section-table.section-news .section-wrap .news-wrap .news-iner .news-box:nth-child(3n) {
-    margin-right: 0px;
+.section-table.section-news .section-wrap .news-wrap .news-boxs .news-box {
+  border-bottom: 1px solid #40afff;
+  margin-bottom: 20px;
+  padding: 20px 0px;
+  max-width: 30%;
+  min-width: 30%;
+  margin-right: 4%;
+}
+
+@media (max-width: 1279px) {
+  .section-table.section-news .section-wrap .news-wrap .news-boxs .news-box {
+    max-width: unset;
+    min-width: unset;
+    margin-right: unset;
   }
 }
 
-.section-table.section-news .section-wrap .news-wrap .news-iner .news-box:nth-child(4n) {
+.section-table.section-news .section-wrap .news-wrap .news-boxs .news-box:nth-child(3n) {
   margin-right: 0px;
 }
 
-@media (max-width: 1400px) {
-  .section-table.section-news .section-wrap .news-wrap .news-iner .news-box:nth-child(4n) {
-    margin-right: 15px;
-  }
-}
-
-@media (max-width: 900px) {
-  .section-table.section-news .section-wrap .news-wrap .news-iner .news-box:nth-child(4n) {
-    margin-right: 0px;
-  }
-}
-
-.section-table.section-news .section-wrap .news-wrap .news-iner .news-box .img-wrap {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 29vh;
-  overflow: hidden;
-  width: 100%;
-  background-color: #1b2c64;
-  background-image: url(../images/news/news1.webp);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.section-table.section-news .section-wrap .news-wrap .news-iner .news-box .img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.section-table.section-news .section-wrap .news-wrap .news-iner .news-box p {
+.section-table.section-news .section-wrap .news-wrap .news-boxs .news-box h3 {
+  text-align: left;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: bold;
   width: 100%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 4.5em;
-  min-height: 4.5em;
+  max-height: 2.3em;
+  min-height: 2.3em;
 }
 
-@media (max-width: 900px) {
-  .section-table.section-news .section-wrap .news-wrap .news-iner .news-box p {
+@media (max-width: 1279px) {
+  .section-table.section-news .section-wrap .news-wrap .news-boxs .news-box h3 {
+    overflow: unset;
+    text-overflow: unset;
+    max-height: unset;
     min-height: unset;
+    -webkit-box-orient: unset;
+    -webkit-line-clamp: unset;
   }
 }
 
-.section-table.section-news .section-wrap .news-wrap .news-iner .news-box .btns-wrap {
+.section-table.section-news .section-wrap .news-wrap .news-boxs .news-box p {
+  text-align: left;
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: bold;
+  padding: 15px 0px 10px 0px;
+}
+
+.section-table.section-news .section-wrap .news-wrap .news-boxs .btns-wrap {
   padding-top: 10px;
   width: 100%;
 }
 
-.section-table.section-news .section-wrap .news-wrap .news-iner .news-box .btns-wrap button {
+.section-table.section-news .section-wrap .news-wrap .news-boxs .btns-wrap button {
   width: 100%;
   margin: 0;
+}
+
+.section-table.section-news .section-wrap .news-wrap .pager-wrap {
+  padding-top: 20px;
+  padding-bottom: 90px;
 }
 
 .section-abouts {
