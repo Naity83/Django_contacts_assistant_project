@@ -24,5 +24,6 @@ python manage.py makemigrations
 python manage.py migrate
 
 
-Запустити фейкові контакти можна командою:
+Запустити фейкові контакти і нотактки можна командою:
 python manage.py faker_contacts
+python manage.py faker_notes
