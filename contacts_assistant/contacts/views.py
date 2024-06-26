@@ -82,7 +82,7 @@ def upcoming_birthdays(request):
         except ValueError:
             return HttpResponseBadRequest("Parameter 'interval' must be an integer.")
 
-        upcoming_contacts = Contact.get_upcoming_birthdays(days).filter(user=request.user)  # Добавлено фильтрация по пользователю
+        upcoming_contacts = Contact.get_upcoming_birthdays(days, request.user)
         return render(request, 'contacts/contact_list.html', {'contacts': upcoming_contacts})
     else:
         return HttpResponseBadRequest("Only GET requests are allowed.")
