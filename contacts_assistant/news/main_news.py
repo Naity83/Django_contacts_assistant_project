@@ -2,15 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import os
-from datetime import datetime
+import datetime
 
 # URL сайта, с которого собираем данные
 url = "https://www.pravda.com.ua/"
-
-def format_date():
-    current_date = datetime.date.today()
-    formatted_date = current_date.strftime("%Y/%m/%d")
-    return formatted_date
 
 def get_content(url):
     response = requests.get(url)
@@ -26,13 +21,8 @@ def get_content(url):
             if article_url[0] != "h":
                 article_url = "https://www.pravda.com.ua" + article_url
 
-            # Парсинг даты публикации
-            date_element = news_item.find('div', class_='article_time')
-            if date_element:
-                published_date = date_element.text.strip()
-                published_date = datetime.strptime(published_date, '%d %B %Y').strftime('%Y/%m/%d')
-            else:
-                published_date = datetime.today().strftime('%Y/%m/%d')  # Если дата не найдена, использовать текущую дату
+            # Убран парсинг даты, используем текущую дату
+            published_date = datetime.date.today().strftime('%Y/%m/%d')
 
             news_data.append({
                 'title': title,
@@ -40,7 +30,7 @@ def get_content(url):
                 'published_date': published_date  # Добавляем дату публикации
             })
         except Exception as e:
-            print(f"Error parsing news item: {e}")
+            # Убрана строка печати ошибки
             continue
 
     # Определяем путь к JSON-файлу относительно файла скрипта
@@ -57,10 +47,3 @@ def get_content(url):
 
 if __name__ == "__main__":
     get_content(url)
-
-
-
-
-
-
-
