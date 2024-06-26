@@ -4,13 +4,15 @@
     <div class="currency-wrap">
       <h2>Currency Exchange Rates</h2>
 
-      <div>
+      <div class="currency-inner">
         {% if valute_data %}
-        <p>Date: {{ valute_data.date }}</p>
-        <p>Bank: {{ valute_data.bank }}</p>
-        <p>Base Currency Literal: {{ valute_data.baseCurrencyLit }}</p>
+        <ul class="list-name">
+          <li>Date: {{ valute_data.date }}</li>
+          <li>Bank: {{ valute_data.bank }}</li>
+          <li>Base Currency Literal: {{ valute_data.baseCurrencyLit }}</li>
+        </ul>
         <h3>Exchange Rates:</h3>
-        <ul>
+        <ul class="list-data">
           {% for rate in valute_data.exchangeRate %}
           <li>
             {{ rate.currency }} - Sale Rate: {{ rate.saleRateNB }}, Purchase
@@ -33,7 +35,7 @@
         {% else %} {% for article in articles %}
         <div class="news-box">
           <h3 title="{{ article.title }}">{{ article.title }}</h3>
-          <p><strong>Published Date:</strong> {{ article.published_date }}</p>
+          <p>Published Date: {{ article.published_date }}</p>
           <div class="btns-wrap display-flex">
             <a class="btn-1 btn-2" href="{{ article.url }}" target="_blank">
               <span>Read more</span>

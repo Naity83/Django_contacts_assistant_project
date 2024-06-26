@@ -1365,6 +1365,45 @@ header {
           padding-bottom: 90px;
         }
       }
+
+      .currency-wrap {
+        .currency-inner {
+          background-color: #a8b8ed;
+          color: #13124e;
+          padding: 30px;
+          border-radius: 30px;
+          margin-bottom: 40px;
+
+          h3 {
+            font-size: 22px;
+            line-height: 26px;
+          }
+
+          ul {
+            &.list-name {
+              @include cleanList;
+              display: flex;
+              justify-content: flex-start;
+              padding-bottom: 5px;
+              li {
+                font-size: 18px;
+                line-height: 23px;
+                font-weight: 400;
+                margin-right: 30px;
+              }
+            }
+
+            &.list-data {
+              li {
+                font-size: 18px;
+                line-height: 23px;
+                font-weight: 400;
+                margin-right: 30px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

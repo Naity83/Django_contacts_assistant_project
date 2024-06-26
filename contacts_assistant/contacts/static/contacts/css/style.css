@@ -4586,6 +4586,42 @@ header.floating {
   padding-bottom: 90px;
 }
 
+.section-table.section-news .section-wrap .currency-wrap .currency-inner {
+  background-color: #a8b8ed;
+  color: #13124e;
+  padding: 30px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+}
+
+.section-table.section-news .section-wrap .currency-wrap .currency-inner h3 {
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.section-table.section-news .section-wrap .currency-wrap .currency-inner ul.list-name {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 5px;
+}
+
+.section-table.section-news .section-wrap .currency-wrap .currency-inner ul.list-name li {
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 400;
+  margin-right: 30px;
+}
+
+.section-table.section-news .section-wrap .currency-wrap .currency-inner ul.list-data li {
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 400;
+  margin-right: 30px;
+}
+
 .section-abouts {
   background-color: #1b2c64;
   background-image: url(../images/about-s.jpg);
