@@ -1,0 +1,203 @@
+{% extends 'contacts/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- gallery --->
+<section id="signup" class="section section-table section-files">
+        <div class="section-wrap">
+          <div>
+            <h2 class="pb40">gallery</h2>
+          </div>
+          <div class="serch-row pb40 display-flex">
+            <div class="search-container">
+              <form action="">
+                <input type="text" placeholder="Search.." name="search" />
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+            <div class="btns-wrap">
+              <div class="filter-dropbox-wrap">
+                <button type="button" class="btn-1 btn-2 open-dropbox">
+                  <span
+                    >filter by file
+                    <img src="{% static 'contacts/images/arrow.webp' %}" class="" alt=""
+                  /></span>
+                </button>
+                <div class="tag-list-wrap hidden">
+                  <ul class="list list-style1 mr15">
+                    <li>video</li>
+                    <li>image</li>
+                    <li>pdf</li>
+                    <li>word</li>
+                    <li>txt</li>
+                    <li>image</li>
+                    <li>zip</li>
+                  </ul>
+                </div>
+              </div>
+              <a href="" class="btn-1 btn-2" target="_blank">
+                <span>filter by...</span>
+              </a>
+            </div>
+          </div>
+          <div class="files-wrap">
+            <div class="files-iner display-flex">
+              <div class="file-box">
+                <div class="img-wrap">
+                  <img src="{% static 'contacts/images/stam/stam1.jpg' %}" alt="" />
+                </div>
+                <p
+                  title="Description Description Description Description Description
+                Description"
+                >
+                  Description Description Description Description Description
+                  Description
+                </p>
+                <div class="btns-wrap display-flex">
+                  <button class="btn-1 btn-2" type="submit" title="remove">
+                    <span>remove</span>
+                  </button>
+                  <button class="btn-1 btn-2" type="submit" title="Delete">
+                    <span>change</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="file-box">
+                <div class="img-wrap">
+                  <img src="{% static 'contacts/images/stam/stam4.jpg' %}" alt="" />
+                </div>
+                <p
+                  title="Description Description Description Description Description
+                Description"
+                >
+                  Description
+                </p>
+                <div class="btns-wrap display-flex">
+                  <button class="btn-1 btn-2" type="submit" title="remove">
+                    <span>remove</span>
+                  </button>
+                  <button class="btn-1 btn-2" type="submit" title="Delete">
+                    <span>change</span>
+                  </button>
+                </div>
+              </div>
+              <div class="file-box">
+                <div class="img-wrap">
+                  <img src="{% static 'contacts/images/stam/stam5.jpg' %}" alt="" />
+                </div>
+                <p
+                  title="Description Description Description Description Description
+                Description"
+                >
+                  Description Description Description Description Description
+                  Description
+                </p>
+                <div class="btns-wrap display-flex">
+                  <button class="btn-1 btn-2" type="submit" title="remove">
+                    <span>remove</span>
+                  </button>
+                  <button class="btn-1 btn-2" type="submit" title="Delete">
+                    <span>change</span>
+                  </button>
+                </div>
+              </div>
+              <div class="file-box">
+                <div class="img-wrap">
+                  <img src="{% static 'contacts/images/stam/stam6.jpg' %}" alt="" />
+                </div>
+                <p
+                  title="Description Description Description Description Description
+                Description"
+                >
+                  Description Description Description Description Description
+                  Description
+                </p>
+                <div class="btns-wrap display-flex">
+                  <button class="btn-1 btn-2" type="submit" title="remove">
+                    <span>remove</span>
+                  </button>
+                  <button class="btn-1 btn-2" type="submit" title="Delete">
+                    <span>change</span>
+                  </button>
+                </div>
+              </div>
+              <div class="file-box">
+                <div class="img-wrap">
+                  <img src="{% static 'contacts/images/stam/stam1.jpg' %}" alt="" />
+                </div>
+                <p
+                  title="Description Description Description Description Description
+                Description"
+                >
+                  Description Description Description Description Description
+                  Description
+                </p>
+                <div class="btns-wrap display-flex">
+                  <button class="btn-1 btn-2" type="submit" title="remove">
+                    <span>remove</span>
+                  </button>
+                  <button class="btn-1 btn-2" type="submit" title="Delete">
+                    <span>change</span>
+                  </button>
+                </div>
+              </div>
+              <div class="file-box">
+                <div class="img-wrap">
+                  <img src="{% static 'contacts/images/stam/stam2.jpg' %}" alt="" />
+                </div>
+                <p
+                  title="Description Description Description Description Description
+                Description"
+                >
+                  Description Description
+                </p>
+                <div class="btns-wrap display-flex">
+                  <button class="btn-1 btn-2" type="submit" title="remove">
+                    <span>remove</span>
+                  </button>
+                  <button class="btn-1 btn-2" type="submit" title="Delete">
+                    <span>change</span>
+                  </button>
+                </div>
+              </div>
+              <div class="file-box">
+                <div class="img-wrap">
+                  <img src="{% static 'contacts/images/stam/stam3.jpg' %}" alt="" />
+                </div>
+                <p
+                  title="Description Description Description Description Description
+                Description"
+                >
+                  Description Description Description Description Description
+                  Description
+                </p>
+                <div class="btns-wrap display-flex">
+                  <button class="btn-1 btn-2" type="submit" title="remove">
+                    <span>remove</span>
+                  </button>
+                  <button class="btn-1 btn-2" type="submit" title="Delete">
+                    <span>change</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <nav class="pager-wrap">
+              <ul class="pager">
+                <li class="previous">
+                  <!-- class="{% if not quotes.has_previous %} disabled {% endif %}"
+                    href="{% if quotes.has_previous %} {% url 'quotes:root_paginate' quotes.previous_page_number %} {% else %} # {% endif %}" -->
+                  <a class="" href="">
+                    <span aria-hidden="true">←</span> Previous
+                  </a>
+                </li>
+
+                <li class="next">
+                  <a class="" href="">Next <span aria-hidden="true">→</span></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+{% endblock %}

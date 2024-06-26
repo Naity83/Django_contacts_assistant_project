@@ -1,19 +1,19 @@
 from django.forms import ModelForm, CharField, ImageField, TextInput, FileInput
 
-from django import forms
 from .models import MyFile
 
 
-class MyFileForm(forms.ModelForm):
+class MyFileForm(ModelForm):
+
     class Meta:
         model = MyFile
-        fields = ['name', 'file']
+        fields = ['name', 'image', 'raw_file']
 
-    def clean_file(self):
-        file = self.cleaned_data.get('file')
-        if file.size > 1024 * 1024:  # 1 МБ
-            raise forms.ValidationError("Розмір файлу перевищує 1 МБ")
-        return file
+    # def clean_file(self):
+    #     file = self.cleaned_data.get('file')
+    #     if file.size > 1024 * 1024:  # 1 МБ
+    #         raise forms.ValidationError("Розмір файлу перевищує 1 МБ")
+    #     return file
 
 
 # class MyFileForm(ModelForm):

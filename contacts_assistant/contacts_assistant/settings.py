@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+print(dotenv_path)
+load_dotenv(dotenv_path)
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ot3in7dh5$pb+xpd6-!%rfllwnna&_zjr-8&ib0j24gx@^n)c_'
+SECRET_KEY = os.getenv('SECRET_KEY')   # 'django-insecure-ot3in7dh5$pb+xpd6-!%rfllwnna&_zjr-8&ib0j24gx@^n)c_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
     'contacts',
     'notes',
     'users',
-    'files',
+    'my_files',
     'news',
 ]
 
@@ -140,12 +143,15 @@ LOGIN_REDIRECT_URL = "/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# settings.py
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLD_NAME'),
-    'API_KEY': os.getenv('CLD_API_KEY'),
-    'API_SECRET': os.getenv('CLD_API_SECRET'),
-}
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.meta.ua'
+EMAIL_PORT = 465
+EMAIL_STARTTLS = False
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+

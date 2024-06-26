@@ -19,7 +19,8 @@ docker run --name contacts_assistant -p 5432:5432 -e POSTGRES_PASSWORD=150209 -d
 
 Створюэмо в Dbeaver вручну нову базу даних contacts_assistant
 
-Перші міграції:
+Міграції:
+python manage.py makemigrations
 python manage.py migrate
 
 

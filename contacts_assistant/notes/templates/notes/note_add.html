@@ -1,0 +1,53 @@
+{% extends "contacts/base.html" %} {% load static%} {% block content %}
+<form method="POST" action="{% url 'notes:note_add' %}">
+  {% csrf_token %}
+  <section id="register" class="section section-register add-new-notes">
+    <div class="section-wrap display-flex">
+      <div class="cont-wrap">
+        <div class="form-stile1 mr50">
+          <form id="loginForm" name="loginForm" role="form">
+            <legend>add new notes</legend>
+            <div class="container">
+              <div class="form-item display-flex">
+                <label>Notes Title {{ form.name }} </label>
+                <span>{{ form.errors.name }}</span>
+              </div>
+              <div class="form-item display-flex">
+                <label>Select Tags</label>
+                <select
+                  name="tags"
+                  multiple="multiple"
+                  class="select-height"
+                  required
+                >
+                  {% for tag in tags %}
+                  <option value="{{tag.name}}">{{tag.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-item display-flex">
+                <label>Description{{form.description}}</label>
+                <span>{{ form.errors.description }}</span>
+              </div>
+
+              <div class="btns-wrap">
+                <a href="{% url 'notes:add_tag' %}" class="btn-1 width-auto">
+                  <span>create new tag</span>
+                </a>
+                <button type="submit" class="btn-1 width-auto">
+                  <span>ADD NEW NOTES</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <img
+        src="{% static 'contacts/images/r8.webp' %}"
+        class="images-assistant"
+        alt=""
+      />
+    </div>
+  </section>
+</form>
+{% endblock %}

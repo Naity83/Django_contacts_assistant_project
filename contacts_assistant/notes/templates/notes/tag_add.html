@@ -1,0 +1,97 @@
+{% extends "contacts/base.html" %}
+{% load static %}
+
+{% block content %}
+<form method="POST" action="{% url 'notes:add_tag' %}">
+    {% csrf_token %}
+    <section id="register" class="section section-register add-new-tags">
+
+        <div class="section-wrap display-flex">
+
+          <div class="cont-wrap display-flex flex-start">
+            <div class="form-stile1 mr50">
+              <form id="loginForm" name="loginForm" role="form">
+                <h2>add new tags</h2>
+
+                <div class="container">
+                  <div class="form-item display-flex">
+                    <label >Enter the tag name {{form.name}} </label>
+                    <span>{{ form.errors.name }}</span>
+                  </div>
+
+                    <div class="btns-wrap">
+                      <button type="submit" class="btn-1">
+                        <span>add tag</span>
+                      </button>
+                    </div>
+
+<!--                  <div class="btns-wrap mt-3">-->
+<!--                    <button type="reset" class="btn-1">-->
+<!--                      <span>Reset</span>-->
+<!--                    </button>-->
+<!--                  </div>-->
+                </div>
+              </form>
+            </div>
+<!--            <div class="scroll-box-wrap">-->
+<!--              <h3>SAVE TAGS:</h3>-->
+<!--              <div class="scroll-box tags-wrap">-->
+<!--                <ul class="list list-style1 mr15">-->
+<!--                  {% for tag in tags %}-->
+<!--                      <li value="{{tag.name}}">{{tag.name}}</li>-->
+<!--                  {% endfor %}-->
+<!--                </ul>-->
+<!--              </div>-->
+<!--            </div>-->
+          </div>
+          <img
+              src="{% static 'contacts/images/r8b.webp' %}"
+              class="images-assistant small mr"
+              alt=""
+            />
+        </div>
+      </section>
+  <script>
+      $(document).ready(function () {
+        // Initialize the chosen plugin for the tags select box
+        $(".chosen-select").chosen();
+
+        // Handle the form submission
+        $("#note-form").on("submit", function (event) {
+          event.preventDefault();
+
+          // Get the form data
+          const title = $("#note-title").val();
+          let tags = $("#note-tags").val();
+          const newTag = $("#new-tag").val();
+          const description = $("#note-description").val();
+
+          // If there's a new tag, add it to the tags array
+          if (newTag) {
+            tags.push(newTag);
+
+            // Add the new tag to the select box and refresh chosen
+            $("#note-tags").append(
+              `<option value="${newTag}" selected>${newTag}</option>`
+            );
+            $("#note-tags").trigger("chosen:updated");
+          }
+
+          // Create the note object
+          const note = {
+            title: title,
+            tags: tags,
+            description: description,
+          };
+
+          // For demonstration purposes, log the note object to the console
+          console.log(note);
+
+          // Reset the form
+          this.reset();
+          $(".chosen-select").val("").trigger("chosen:updated");
+        });
+      });
+    </script>
+</form>
+{% endblock %}

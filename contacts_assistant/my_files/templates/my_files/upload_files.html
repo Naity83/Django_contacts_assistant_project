@@ -1,0 +1,60 @@
+{% extends 'contacts/base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- upload-my_files --->
+  <section id="register" class="section section-register upload-files">
+        <div class="section-wrap display-flex">
+          <div class="cont-wrap">
+            <div class="form-stile1 mr50">
+              <form id="loginForm" name="loginForm" role="form">
+                <legend>upload files</legend>
+                <div class="container">
+                  <div class="form-item display-flex">
+                    <label for="files-name">Files name</label>
+                    <input
+                      id="files-name"
+                      name="files-name"
+                      type="text"
+                      placeholder="Enter files name"
+                      required
+                    />
+                  </div>
+                  <div class="form-item display-flex">
+                    <label for="files-description">Files description</label>
+                    <textarea
+                      name="files-description"
+                      placeholder="Enter Description..."
+                    ></textarea>
+                  </div>
+
+                  <div class="form-item display-flex file-upload">
+                    <p class="label">Upload file</p>
+                    <label class="file-upload__label" for="file-upload"
+                      ><span class="upload__label labelName">
+                        <span class="path">Choose file</span>
+                    </label>
+                    <input
+                      id="file-upload"
+                      class="file-upload__input"
+                      type="file"
+                      name="file"
+                    />
+                  </div>
+                  <div class="btns-wrap">
+                    <!-- <a href="" class="btn-1" target="_blank">
+                  <span>sign in</span>
+                </a> -->
+                    <button type="button" class="btn-1">
+                      <span>upload files</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <img src="{% static 'contacts/images/r12.webp' %}" class="images-assistant" alt="" />
+        </div>
+      </section>
+
+{% endblock %}

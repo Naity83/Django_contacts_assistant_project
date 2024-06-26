@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="ua">
+<html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -20,8 +20,12 @@
     <header class="floatingHeader"> 
       <div class="section-wrap display-flex header-wrap"> 
         <div class="logo"> 
-          <h1><img src="{% static 'contacts/images/logo.png' %}" alt="Personal Assistants" /></h1> 
-        </div> 
+          <h1>
+            <a href="{% url 'contacts:root' %}">
+              <img src="{% static 'contacts/images/logo.png' %}" alt="Personal Assistants" />
+            </a>
+          </h1> 
+        </div>
         <div class="menu"> 
           <input class="switcher" type="checkbox" id="menu" /> 
           <label class="open" for="menu"> 
@@ -44,14 +48,14 @@
                 </a>
               </li> 
               <li class="nav-li menu-link"> 
-                <button type="button" class="btn-2"> 
+                <a href="{% url 'news:index' %}" class="btn-2" >
                   <span>news</span> 
-                </button> 
+                </a> 
               </li> 
               <li class="nav-li menu-link"> 
-                <button type="button" class="btn-2"> 
+                <a href="{% url 'notes:notes_main' %}" type="button" class="btn-2">
                   <span>notes</span> 
-                </button> 
+                </a>
               </li>
               <li class="nav-li menu-link">
                 <form method="post" action="{% url 'users:logout' %}">
@@ -60,6 +64,11 @@
                 </form>
             </li>
             {% else %}
+            <li class="nav-li menu-link"> 
+              <a href="{% url 'news:index' %}" class="btn-2" >
+                <span>news</span> 
+              </a> 
+            </li> 
             <li class="nav-li menu-link"> 
               <a href="{% url 'users:signup' %}" class="btn-2" > 
                 <span>sign up</span> 
@@ -80,9 +89,9 @@
         {% block content %}
         {% endblock %}
     </main>
-    <a href="#topSection" title="повернутися вгору" class="backToTop">
+    <a href="#topSection" title="up" class="backToTop">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
-        <span>повернутися вгору</span>
+        <span>up</span>
     </a>
     <script src="{% static 'contacts/scripts/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'contacts/scripts/main.js' %}"></script>
