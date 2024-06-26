@@ -3614,6 +3614,7 @@ img {
 
 .images-assistant {
   width: auto;
+  animation: assistantAnimation 4s infinite;
 }
 
 .images-assistant.ml {
@@ -3644,6 +3645,18 @@ img {
 
 .images-assistant.small {
   width: 150px;
+}
+
+@keyframes assistantAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .display-flex {

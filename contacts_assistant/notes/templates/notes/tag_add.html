@@ -4,15 +4,14 @@
 {% block content %}
 <form method="POST" action="{% url 'notes:add_tag' %}">
     {% csrf_token %}
-    <section id="register" class="section section-register add-new-tags">
+    <section id="register" class="section section-register">
 
         <div class="section-wrap display-flex">
 
-          <div class="cont-wrap display-flex flex-start">
+          <div class="cont-wrap">
             <div class="form-stile1 mr50">
               <form id="loginForm" name="loginForm" role="form">
-                <h2>add new tags</h2>
-
+                <legend>add new tags</legend>
                 <div class="container">
                   <div class="form-item display-flex">
                     <label >Enter the tag name {{form.name}} </label>
@@ -45,8 +44,8 @@
 <!--            </div>-->
           </div>
           <img
-              src="{% static 'contacts/images/r8b.webp' %}"
-              class="images-assistant small mr"
+              src="{% static 'contacts/images/r8.webp' %}"
+              class="images-assistant ml"
               alt=""
             />
         </div>
