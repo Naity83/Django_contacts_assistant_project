@@ -21,8 +21,11 @@
       <div class="section-wrap display-flex header-wrap"> 
         <div class="logo"> 
           <h1>
-            <a href="{% url 'contacts:root' %}">
+            <a class="reg-view" href="{% url 'contacts:root' %}">
               <img src="{% static 'contacts/images/logo.png' %}" alt="Personal Assistants" />
+            </a>
+            <a class="mob-view" href="{% url 'contacts:root' %}">
+              <img src="{% static 'contacts/images/logo-mob-view.webp' %}" alt="Personal Assistants" />
             </a>
           </h1> 
         </div>

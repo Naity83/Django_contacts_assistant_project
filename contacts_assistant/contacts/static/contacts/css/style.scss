@@ -766,9 +766,18 @@ header {
         text-transform: uppercase;
         font-size: 30px;
 
-        img {
-          @media (max-width: 450px) {
-            width: 86%;
+        .reg-view {
+          @media (max-width: 620px) {
+            display: none;
+          }
+        }
+
+        .mob-view {
+          display: none;
+
+          @media (max-width: 620px) {
+            display: block;
+            margin: 5px 40px 5px 0px;
           }
         }
       }
@@ -780,7 +789,7 @@ header {
         visibility: hidden;
         left: -9999px;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1279px) {
           &:checked ~ nav {
             right: 0;
           }
@@ -798,7 +807,7 @@ header {
         display: none;
         color: $txt-wite;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1279px) {
           &.close,
           &.open {
             display: block;
@@ -818,7 +827,7 @@ header {
         }
       }
       nav {
-        @media (max-width: 1024px) {
+        @media (max-width: 1279px) {
           position: fixed;
           width: 250px;
           height: 100vh;
@@ -832,7 +841,7 @@ header {
         }
         ul {
           @include cleanList;
-          @media (max-width: 1024px) {
+          @media (max-width: 1279px) {
             flex-direction: column;
           }
           li {
@@ -848,7 +857,7 @@ header {
               font-size: 24px;
               font-family: "Assistant", "Arial", sans-serif;
 
-              @media (max-width: 1024px) {
+              @media (max-width: 1279px) {
                 padding: 15px;
               }
               &:hover,

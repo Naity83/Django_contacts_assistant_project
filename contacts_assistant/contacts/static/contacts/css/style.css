@@ -3896,9 +3896,20 @@ header .header-wrap .logo h1 {
   font-size: 30px;
 }
 
-@media (max-width: 450px) {
-  header .header-wrap .logo h1 img {
-    width: 86%;
+@media (max-width: 620px) {
+  header .header-wrap .logo h1 .reg-view {
+    display: none;
+  }
+}
+
+header .header-wrap .logo h1 .mob-view {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  header .header-wrap .logo h1 .mob-view {
+    display: block;
+    margin: 5px 40px 5px 0px;
   }
 }
 
@@ -3908,7 +3919,7 @@ header .header-wrap .menu .switcher {
   left: -9999px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   header .header-wrap .menu .switcher:checked ~ nav {
     right: 0;
   }
@@ -3925,7 +3936,7 @@ header .header-wrap .menu label {
   color: #fff;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   header .header-wrap .menu label.close, header .header-wrap .menu label.open {
     display: block;
     position: relative;
@@ -3941,7 +3952,7 @@ header .header-wrap .menu label {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   header .header-wrap .menu nav {
     position: fixed;
     width: 250px;
@@ -3962,7 +3973,7 @@ header .header-wrap .menu nav ul {
   list-style: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   header .header-wrap .menu nav ul {
     flex-direction: column;
   }
@@ -3981,7 +3992,7 @@ header .header-wrap .menu nav ul li button {
   font-family: "Assistant", "Arial", sans-serif;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   header .header-wrap .menu nav ul li a,
   header .header-wrap .menu nav ul li button {
     padding: 15px;
