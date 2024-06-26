@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список файлів</title>
+</head>
+<body>
+    <h1>Список файлів</h1>
+    <table>
+
+        <tbody>
+            {% for file in files %}
+            <tr>
+                <td>{{ file.name }}</td>
+                <td>{{ file.file.url }}</td>
+                <td>{{ file.uploaded_at }}</td>
+                <td>
+                    <a href="{% url 'my_files:delete_file' file.id %}">Видалити</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

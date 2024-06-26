@@ -21,12 +21,12 @@ def upload_file(request):
 
 def file_list(request):
     files = MyFile.objects.all()
-    sort_by = request.GET.get('sort_by', 'name')
-    order = request.GET.get('order', 'asc')
-    if order == 'desc':
-        sort_by = '-' + sort_by
-    files = files.order_by(sort_by)
-    return render(request, 'my_files/files.html', {'files': files})
+    # sort_by = request.GET.get('sort_by', 'name')
+    # order = request.GET.get('order', 'asc')
+    # if order == 'desc':
+    #     sort_by = '-' + sort_by
+    # files = files.order_by(sort_by)
+    return render(request, 'my_files/file_list.html', {'files': files})
 
 
 def delete_file(request, pk):
