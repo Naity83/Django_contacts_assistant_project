@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
+
 
 
 def validate_file_size(value):
@@ -23,7 +25,8 @@ def validate_file_size(value):
 
 class MyFile(models.Model):
     name = models.CharField(max_length=255)
-    file = models.FileField(upload_to='files/', validators=[validate_file_size])
+    image = models.ImageField(upload_to='my_files/', validators=[validate_file_size])
+    raw_file = models.ImageField(upload_to='raw/', blank=True, storage=RawMediaCloudinaryStorage())
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

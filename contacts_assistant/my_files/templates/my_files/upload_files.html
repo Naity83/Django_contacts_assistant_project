@@ -7,45 +7,35 @@
         <div class="section-wrap display-flex">
           <div class="cont-wrap">
             <div class="form-stile1 mr50">
-              <form id="loginForm" name="loginForm" role="form">
+              {% if form.errors and form.non_field_errors %}
+              <div class="alert alert-danger" role="alert">
+                  {{form.non_field_errors}}
+              </div>
+              {% endif %}
+              <form action="{% url 'my_files:upload_file' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <legend>upload files</legend>
                 <div class="container">
                   <div class="form-item display-flex">
                     <label for="files-name">Files name</label>
-                    <input
-                      id="files-name"
-                      name="files-name"
-                      type="text"
-                      placeholder="Enter files name"
-                      required
-                    />
-                  </div>
-                  <div class="form-item display-flex">
-                    <label for="files-description">Files description</label>
-                    <textarea
-                      name="files-description"
-                      placeholder="Enter Description..."
-                    ></textarea>
+                    {{ form.name }}
+                    <span>{{form.errors.name}}</span>
                   </div>
 
                   <div class="form-item display-flex file-upload">
-                    <p class="label">Upload file</p>
-                    <label class="file-upload__label" for="file-upload"
-                      ><span class="upload__label labelName">
-                        <span class="path">Choose file</span>
-                    </label>
-                    <input
-                      id="file-upload"
-                      class="file-upload__input"
-                      type="file"
-                      name="file"
-                    />
+                    <label for="formFile" class="form-label">Upload image</label>
+                      {{ form.image }}
+                      <span>{{form.errors.image}}</span>
+                    <label for="formFile" class="form-label">Upload file</label>
+                      {{ form.raw_file }}
+                      <span>{{form.errors.raw_file}}</span>
+
                   </div>
                   <div class="btns-wrap">
                     <!-- <a href="" class="btn-1" target="_blank">
                   <span>sign in</span>
                 </a> -->
-                    <button type="button" class="btn-1">
+                    <button type="submit" class="btn-1">
                       <span>upload files</span>
                     </button>
                   </div>
@@ -56,5 +46,6 @@
           <img src="{% static 'contacts/images/r12.webp' %}" class="images-assistant" alt="" />
         </div>
       </section>
+
 
 {% endblock %}

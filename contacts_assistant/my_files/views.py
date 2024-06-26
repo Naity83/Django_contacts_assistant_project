@@ -10,13 +10,13 @@ from .forms import MyFileForm
 
 def upload_file(request):
     if request.method == 'POST':
-        form = MyFileForm(request.POST, request.FILES)
+        form = MyFileForm(request.POST, request.FILES, instance=MyFile())
         if form.is_valid():
             form.save()
-            return redirect('file_list')
+            return redirect('my_files:file_list')
     else:
-        form = MyFileForm()
-    return render(request, 'files/upload_files.html', {'form': form})
+        form = MyFileForm(instance=MyFile())
+    return render(request, 'my_files/upload_files.html', {'form': form})
 
 
 def file_list(request):
@@ -26,7 +26,7 @@ def file_list(request):
     if order == 'desc':
         sort_by = '-' + sort_by
     files = files.order_by(sort_by)
-    return render(request, 'files/files.html', {'files': files})
+    return render(request, 'my_files/files.html', {'files': files})
 
 
 def delete_file(request, pk):
