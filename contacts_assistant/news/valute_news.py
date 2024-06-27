@@ -45,4 +45,3 @@ def get_exchange_rates():
 if __name__ == "__main__":
     get_exchange_rates()
 
-
