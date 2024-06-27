@@ -1,9 +1,9 @@
-{% extends 'contacts/base.html' %} {% load static %} {% block content %}
+{% extends 'contacts/base.html' %}
+{% block content %}
 <section id="signup" class="section section-table section-news">
   <div class="section-wrap">
     <div class="currency-wrap">
       <h2>Currency Exchange Rates</h2>
-
       <div class="currency-inner">
         {% if valute_data %}
         <ul class="list-name">
@@ -15,8 +15,7 @@
         <ul class="list-data">
           {% for rate in valute_data.exchangeRate %}
           <li>
-            {{ rate.currency }} - Sale Rate: {{ rate.saleRateNB }}, Purchase
-            Rate: {{ rate.purchaseRateNB }}
+            {{ rate.currency }} - Sale Rate: {{ rate.saleRateNB }}, Purchase Rate: {{ rate.purchaseRateNB }}
           </li>
           {% endfor %}
         </ul>
@@ -32,31 +31,49 @@
       <div class="news-boxs">
         {% if error %}
         <p class="error-p">{{ error }}</p>
-        {% else %} {% for article in articles %}
-        <div class="news-box">
-          <h3 title="{{ article.title }}">{{ article.title }}</h3>
-          <p>Published Date: {{ article.published_date }}</p>
-          <div class="btns-wrap display-flex">
-            <a class="btn-1 btn-2" href="{{ article.url }}" target="_blank">
-              <span>Read more</span>
-            </a>
-          </div>
-        </div>
-        {% endfor %} {% endif %}
+        {% else %}
+          {% for article in articles %}
+            <div class="news-box">
+              <h3 title="{{ article.title }}">{{ article.title }}</h3>
+              <p>Published Date: {{ article.published_date }}</p>
+              <div class="btns-wrap display-flex">
+                <a class="btn-1 btn-2" href="{{ article.url }}" target="_blank">
+                  <span>Read more</span>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
-      <nav class="pager-wrap">
-        <ul class="pager">
-          <li class="previous">
-            <!-- class="{% if not quotes.has_previous %} disabled {% endif %}"
-                href="{% if quotes.has_previous %} {% url 'quotes:root_paginate' quotes.previous_page_number %} {% else %} # {% endif %}" -->
-            <a class="" href=""> <span aria-hidden="true">←</span> Previous </a>
-          </li>
+      {% if articles.has_other_pages %}
+        <nav class="pager-wrap">
+          <ul class="pager">
+            {% if articles.has_previous %}
+              <li class="previous">
+                <a href="?page={{ articles.previous_page_number }}">
+                  <span aria-hidden="true">←</span> Previous
+                </a>
+              </li>
+            {% else %}
+              <li class="previous disabled">
+                <span aria-hidden="true">←</span> Previous
+              </li>
+            {% endif %}
 
-          <li class="next">
-            <a class="" href="">Next <span aria-hidden="true">→</span></a>
-          </li>
-        </ul>
-      </nav>
+            {% if articles.has_next %}
+              <li class="next">
+                <a href="?page={{ articles.next_page_number }}">
+                  Next <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            {% else %}
+              <li class="next disabled">
+                Next <span aria-hidden="true">→</span>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
     </div>
   </div>
 </section>

@@ -5,6 +5,7 @@ import datetime
 from .main_news import get_content 
 from .valute_news import get_exchange_rates
 from .models import Article
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
     url = "https://www.pravda.com.ua/"
@@ -32,8 +33,25 @@ def index(request):
                 published_date=published_date
             )
 
-        articles = Article.objects.all()
-        return render(request, 'news/news.html', {'articles': articles, 'valute_data': valute_data})
+        # Получаем список всех статей
+        article_list = Article.objects.all()
+
+        # Пагинация для новостей
+        paginator = Paginator(article_list, 9)
+        page_number = request.GET.get('page')
+        try:
+            articles = paginator.page(page_number)
+        except PageNotAnInteger:
+            articles = paginator.page(1)
+        except EmptyPage:
+            articles = paginator.page(paginator.num_pages)
+
+        context = {
+            'valute_data': valute_data,
+            'articles': articles,
+        }
+        return render(request, 'news/news.html', context)
+
     except FileNotFoundError:
         return render(request, 'news/news.html', {'error': 'Файл с новостями не найден.'})
     except json.JSONDecodeError:
