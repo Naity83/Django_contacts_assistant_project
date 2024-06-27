@@ -505,6 +505,7 @@ img {
 
 .images-assistant {
   width: auto;
+  animation: assistantAnimation 4s infinite;
   &.ml {
     margin-left: 50px;
     @media (max-width: 1279px) {
@@ -524,6 +525,18 @@ img {
 
   &.small {
     width: 150px;
+  }
+
+  @keyframes assistantAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 }
 
