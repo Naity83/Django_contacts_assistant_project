@@ -18,6 +18,10 @@ print(dotenv_path)
 load_dotenv(dotenv_path)
 
 load_dotenv()
+print("CLOUDINARY_SETTINGS:")
+print(os.getenv('CLD_NAME'))
+print(os.getenv('CLD_API_KEY'))
+print(os.getenv('CLD_API_SECRET'))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,6 +52,8 @@ INSTALLED_APPS = [
     'users',
     'my_files',
     'news',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +141,7 @@ USE_L10N = False
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
 LOGIN_URL = "/users/signin"    
 LOGIN_REDIRECT_URL = "/"
 
@@ -142,6 +149,17 @@ LOGIN_REDIRECT_URL = "/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLD_NAME'),
+    'API_KEY': os.getenv('CLD_API_KEY'),
+    'API_SECRET': os.getenv('CLD_API_SECRET'),
+}
+
+CLOUDINARY_URL = f"cloudinary://{CLOUDINARY_STORAGE['API_KEY']}:{CLOUDINARY_STORAGE['API_SECRET']}@{CLOUDINARY_STORAGE['CLOUD_NAME']}"
 
 
 

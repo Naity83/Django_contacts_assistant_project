@@ -1,0 +1,14 @@
+{% extends "contacts/base.html" %}
+
+{% block content %}
+  <h2>Change Document</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="btns-wrap">
+        <button type="submit" class="btn-1 width-auto">
+            <span>Save Changes</span>
+        </button>
+    </div>
+  </form>
+{% endblock %}

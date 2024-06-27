@@ -9,6 +9,8 @@ python-dotenv = "*"
 psycopg2 = "*"
 pillow = "*"
 faker = "*"
+cloudinary = "*"
+django-cloudinary-storage = "*"
 
 [dev-packages]
 

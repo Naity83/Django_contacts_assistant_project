@@ -1,0 +1,15 @@
+{% extends 'contacts/base.html' %} {% load static %} {% block content %}
+    <h1>Upload Document</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="btns-wrap">
+            <button type="submit" class="btn-1 width-auto">
+                <span>Upload</span>
+            </button>
+        </div>
+    </form>
+    {% if success %}
+        <p>Image uploaded successfully!</p>
+    {% endif %}
+    {% endblock%}
