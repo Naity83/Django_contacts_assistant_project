@@ -1,15 +1,32 @@
 {% extends 'contacts/base.html' %} {% load static %} {% block content %}
-    <h1>Upload Image</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="btns-wrap">
-            <button type="submit" class="btn-1 width-auto">
+
+<section id="register" class="section section-register upload-files">
+  <div class="section-wrap display-flex">
+    <div class="cont-wrap">
+      <div class="form-stile1 mr50">
+        <form method="post" enctype="multipart/form-data">
+          <legend>Upload Video</legend>
+          <div class="container">
+            <div class="form-item display-flex">
+              {% csrf_token %} {{ form.as_p }}
+            </div>
+            <div class="btns-wrap">
+              <button type="submit" class="btn-1 width-auto">
                 <span>Upload</span>
-            </button>
-        </div>
-    </form>
-    {% if success %}
-        <p>Image uploaded successfully!</p>
-    {% endif %}
-    {% endblock%}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <img
+      src="{% static 'contacts/images/r11.webp' %}"
+      class="images-assistant"
+      alt=""
+    />
+  </div>
+</section>
+{% if success %}
+<p>Video uploaded successfully!</p>
+{% endif %}
+{% endblock%}

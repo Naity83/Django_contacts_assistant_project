@@ -1,5 +1,5 @@
 {
-    "date": "26.06.2024",
+    "date": "27.06.2024",
     "bank": "PB",
     "baseCurrency": 980,
     "baseCurrencyLit": "UAH",
@@ -7,24 +7,24 @@
         {
             "baseCurrency": "UAH",
             "currency": "EUR",
-            "saleRateNB": 43.545,
-            "purchaseRateNB": 43.545,
-            "saleRate": 44.1,
-            "purchaseRate": 43.1
+            "saleRateNB": 43.3133,
+            "purchaseRateNB": 43.3133,
+            "saleRate": 44.0,
+            "purchaseRate": 43.0
         },
         {
             "baseCurrency": "UAH",
             "currency": "PLN",
-            "saleRateNB": 10.1297,
-            "purchaseRateNB": 10.1297,
-            "saleRate": 10.21,
-            "purchaseRate": 10.04
+            "saleRateNB": 10.0558,
+            "purchaseRateNB": 10.0558,
+            "saleRate": 10.14,
+            "purchaseRate": 9.98
         },
         {
             "baseCurrency": "UAH",
             "currency": "USD",
-            "saleRateNB": 40.6545,
-            "purchaseRateNB": 40.6545,
+            "saleRateNB": 40.5138,
+            "purchaseRateNB": 40.5138,
             "saleRate": 40.9,
             "purchaseRate": 40.3
         }

@@ -1,144 +1,189 @@
 {% extends 'contacts/base.html' %} {% load static %} {% block content %}
-      <!-- gallery --->
-      <section id="signup" class="section section-table section-files">
-        <div class="section-wrap">
-          <div>
-            <h2 class="pb40">gallery</h2>
-          </div>
-          <div class="serch-row pb40 display-flex">
-            <div class="search-container">
-              <form action="">
-                <input type="text" placeholder="Search.." name="search" />
-                <button type="submit"><i class="fa fa-search"></i></button>
-              </form>
-            </div>
-            <div class="btns-wrap">
-              <div class="filter-dropbox-wrap">
-                <button type="button" class="btn-1 btn-2 open-dropbox">
-                  <span
-                    >filter by file
-                    <img src="{% static 'contacts/images/arrow.webp' %}" class="" alt=""
-                  /></span>
-                </button>
-                <div class="tag-list-wrap hidden">
-                  <ul class="list list-style1 mr15">
-                    <li>video</li>
-                    <li>image</li>
-                    <li>pdf</li>
-                    <li>word</li>
-                    <li>txt</li>
-                    <li>image</li>
-                    <li>zip</li>
-                  </ul>
-                </div>
-              </div>
-              <a href="{% url 'my_files:upload_picture' %}" class="btn-1 btn-2" >
-                <span>Upload Photo</span>
-              </a>
-              <a href="{% url 'my_files:upload_video' %}" class="btn-1 btn-2" target="_blank">
-                <span>Upload Video</span>
-              </a>
-              <a href="{% url 'my_files:upload_document' %}" class="btn-1 btn-2" target="_blank">
-                <span>Upload Document</span>
-              </a>
-            </div>
-          </div>
-          <div class="files-wrap">
-            <div class="files-iner display-flex">
-                {% for picture in pictures %}
-                <div class="file-box">
-                    <div class="img-wrap">
-                        <img src="{{ picture.path }}" alt="{{ picture.description }}" />
-                    </div>
-                    <p title="{{ picture.description }}">
-                        {{ picture.description }}
-                    </p>
-                    <div class="btns-wrap display-flex">
-                        <form method="post" action="{% url 'my_files:remove_picture' picture.id %}">
-                            {% csrf_token %}
-                            <button class="btn-1 btn-2" type="submit" title="remove">
-                                <span>remove</span>
-                            </button>
-                        </form>
-                        <form method="get" action="{% url 'my_files:change_picture' picture.id %}">
-                            <button class="btn-1 btn-2" type="submit" title="change">
-                                <span>change</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        
-            </div>
-        </div>
-        
-
-        {% for video in videos %}
-    <div class="file-box">
-        <div class="video-wrap">
-            <video width="320" height="240" controls preload="auto">
-                <source src="{{ video.path }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <p title="{{ video.description }}">{{ video.description }}</p>
-        <div class="btns-wrap display-flex">
-            <form method="post" action="{% url 'my_files:remove_video' video.id %}">
-                {% csrf_token %}
-                <button class="btn-1 btn-2" type="submit" title="remove">
-                    <span>remove</span>
-                </button>
-            </form>
-            <form method="get" action="{% url 'my_files:change_video' video.id %}">
-                <button class="btn-1 btn-2" type="submit" title="change">
-                    <span>change</span>
-                </button>
-            </form>
-        </div>
+<!-- gallery --->
+<section id="signup" class="section section-table section-files">
+  <div class="section-wrap">
+    <div>
+      <h2 class="pb40">gallery</h2>
     </div>
-{% endfor %}
+    <div class="serch-row pb40 display-flex">
+      <div class="search-container">
+        <form action="">
+          <input type="text" placeholder="Search.." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
       </div>
-      {% for document in documents %}
-      <div class="file-box">
+      <div class="btns-wrap">
+        <div class="filter-dropbox-wrap">
+          <button type="button" class="btn-1 btn-2 open-dropbox">
+            <span
+              >filter by file
+              <img
+                src="{% static 'contacts/images/arrow.webp' %}"
+                class=""
+                alt=""
+            /></span>
+          </button>
+          <div class="tag-list-wrap hidden">
+            <ul class="list list-style1 mr15">
+              <li>video</li>
+              <li>image</li>
+              <li>pdf</li>
+              <li>word</li>
+              <li>txt</li>
+              <li>image</li>
+              <li>zip</li>
+            </ul>
+          </div>
+        </div>
+        <div class="filter-dropbox-wrap">
+          <button type="button" class="btn-1 btn-2 open-dropbox w200">
+            <span
+              >Upload
+              <img
+                src="{% static 'contacts/images/arrow.webp' %}"
+                class=""
+                alt=""
+            /></span>
+          </button>
+          <div class="tag-list-wrap hidden">
+            <ul class="list list-style1 mr15">
+              <li>
+                <a
+                  href="{% url 'my_files:upload_picture' %}"
+                  class="btn-1 btn-2"
+                >
+                  <span>Upload Photo</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'my_files:upload_video' %}" class="btn-1 btn-2">
+                  <span>Upload Video</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="{% url 'my_files:upload_document' %}"
+                  class="btn-1 btn-2"
+                >
+                  <span>Upload Document</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="files-wrap">
+      <div class="files-iner display-flex">
+        <!-- for picture} -->
+        {% for picture in pictures %}
+        <div class="file-box">
+          <div class="file-inner">
+            <img src="{{ picture.path }}" alt="{{ picture.description }}" />
+          </div>
+          <p title="{{ picture.description }}">{{ picture.description }}</p>
+          <div class="btns-wrap display-flex">
+            <form
+              method="post"
+              action="{% url 'my_files:remove_picture' picture.id %}"
+            >
+              {% csrf_token %}
+              <button class="btn-1 btn-2" type="submit" title="remove">
+                <span>remove</span>
+              </button>
+            </form>
+            <form
+              method="get"
+              action="{% url 'my_files:change_picture' picture.id %}"
+            >
+              <button class="btn-1 btn-2" type="submit" title="change">
+                <span>change</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- end for picture -->
+
+        <!-- end for document  -->
+        {% for document in documents %}
+        <div class="file-box">
           <p>{{ document.description }}</p>
           <div>
-            <a href="{{ document.path }}?fl_attachment=true" target="_blank">Download</a>
-
+            <a href="{{ document.path }}?fl_attachment=true" target="_blank"
+              >Download</a
+            >
           </div>
           <div class="btns-wrap display-flex">
-              <form method="post" action="{% url 'my_files:remove_document' document.id %}">
-                  {% csrf_token %}
-                  <button class="btn-1 btn-2" type="submit" title="remove">
-                      <span>remove</span>
-                  </button>
-              </form>
-              <form method="get" action="{% url 'my_files:change_document' document.id %}">
-                  <button class="btn-1 btn-2" type="submit" title="change">
-                      <span>change</span>
-                  </button>
-              </form>
-          </div>
-      </div>
-  {% endfor %}
-  
-              
-            <nav class="pager-wrap">
-              <ul class="pager">
-                <li class="previous">
-                  <!-- class="{% if not quotes.has_previous %} disabled {% endif %}"
-                    href="{% if quotes.has_previous %} {% url 'quotes:root_paginate' quotes.previous_page_number %} {% else %} # {% endif %}" -->
-                  <a class="" href="">
-                    <span aria-hidden="true">←</span> Previous
-                  </a>
-                </li>
-
-                <li class="next">
-                  <a class="" href="">Next <span aria-hidden="true">→</span></a>
-                </li>
-              </ul>
-            </nav>
+            <form
+              method="post"
+              action="{% url 'my_files:remove_document' document.id %}"
+            >
+              {% csrf_token %}
+              <button class="btn-1 btn-2" type="submit" title="remove">
+                <span>remove</span>
+              </button>
+            </form>
+            <form
+              method="get"
+              action="{% url 'my_files:change_document' document.id %}"
+            >
+              <button class="btn-1 btn-2" type="submit" title="change">
+                <span>change</span>
+              </button>
+            </form>
           </div>
         </div>
-      </section>
-      {% endblock %}
+        {% endfor %}
+        <!-- for document } -->
+
+        <!-- end for video  -->
+        {% for video in videos %}
+        <div class="file-box">
+          <div class="video-wrap">
+            <video width="320" height="240" controls preload="auto">
+              <source src="{{ video.path }}" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p title="{{ video.description }}">{{ video.description }}</p>
+          <div class="btns-wrap display-flex">
+            <form
+              method="post"
+              action="{% url 'my_files:remove_video' video.id %}"
+            >
+              {% csrf_token %}
+              <button class="btn-1 btn-2" type="submit" title="remove">
+                <span>remove</span>
+              </button>
+            </form>
+            <form
+              method="get"
+              action="{% url 'my_files:change_video' video.id %}"
+            >
+              <button class="btn-1 btn-2" type="submit" title="change">
+                <span>change</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- for video } -->
+      </div>
+      <nav class="pager-wrap">
+        <ul class="pager">
+          <li class="previous">
+            <!-- class="{% if not quotes.has_previous %} disabled {% endif %}"
+              href="{% if quotes.has_previous %} {% url 'quotes:root_paginate' quotes.previous_page_number %} {% else %} # {% endif %}" -->
+            <a class="" href=""> <span aria-hidden="true">←</span> Previous </a>
+          </li>
+
+          <li class="next">
+            <a class="" href="">Next <span aria-hidden="true">→</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+{% endblock %}

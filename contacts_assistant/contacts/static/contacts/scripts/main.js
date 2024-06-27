@@ -24,6 +24,13 @@ $(document).ready(function () {
   });
 
   //end pp-container
+
+  //open-dropbox
+  $('.open-dropbox').click(function(){
+    $(this).next('div').toggleClass('hidden');
+    $(this).find('img').toggleClass('rotate');
+ });
+  //end open-dropbox
  
   $('.menu-link').click(function() {
       $('#menu').prop('checked', false); // Забезпечити закриття меню

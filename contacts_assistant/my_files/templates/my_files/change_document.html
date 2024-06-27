@@ -1,14 +1,29 @@
-{% extends "contacts/base.html" %}
+{% extends 'contacts/base.html' %} {% load static %} {% block content %}
 
-{% block content %}
-  <h2>Change Document</h2>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="btns-wrap">
-        <button type="submit" class="btn-1 width-auto">
-            <span>Save Changes</span>
-        </button>
+<section id="register" class="section section-register upload-files">
+  <div class="section-wrap display-flex">
+    <div class="cont-wrap">
+      <div class="form-stile1 mr50">
+        <form method="post" enctype="multipart/form-data">
+          <legend>Change Document</legend>
+          <div class="container">
+            <div class="form-item display-flex">
+              {% csrf_token %} {{ form.as_p }}
+            </div>
+            <div class="btns-wrap">
+              <button type="submit" class="btn-1 width-auto">
+                <span>Save Changes</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  </form>
-{% endblock %}
+    <img
+      src="{% static 'contacts/images/r11.webp' %}"
+      class="images-assistant"
+      alt=""
+    />
+  </div>
+</section>
+{% endblock%}

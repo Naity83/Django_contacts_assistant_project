@@ -11,6 +11,7 @@ pillow = "*"
 faker = "*"
 cloudinary = "*"
 django-cloudinary-storage = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 

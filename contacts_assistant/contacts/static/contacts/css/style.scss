@@ -236,6 +236,10 @@ button {
     &.width-auto {
       width: auto;
     }
+
+    &.w200 {
+      min-width: 200px;
+    }
   }
 }
 .table-btns-wrap {
@@ -330,6 +334,17 @@ button {
         justify-content: flex-start;
         align-items: flex-start;
         width: 100%;
+      }
+
+      p {
+        width: 100%;
+        #formFile {
+          padding-top: 8px;
+        }
+
+        input::file-selector-button {
+          display: none;
+        }
       }
 
       label,
@@ -1100,6 +1115,12 @@ header {
 
   &.upload-files {
     background-image: url(../images/upload-files.jpg);
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @media (max-width: 800px) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
   }
 
   &.add-new-notes {
@@ -1252,7 +1273,7 @@ header {
                 margin-right: 0px;
               }
             }
-            .img-wrap {
+            .file-inner {
               display: flex;
               justify-content: flex-start;
               align-items: center;
@@ -2003,6 +2024,23 @@ header {
 
       &.list.list-style1.mr15 {
         margin-right: 5px;
+      }
+
+      li {
+        .btn-1.btn-2 {
+          font-size: 18px;
+          line-height: 22px;
+          padding: 0;
+          letter-spacing: unset;
+          text-transform: unset;
+          font-weight: unset;
+          border: none;
+          border-radius: unset;
+          position: relative;
+          text-align: left;
+          background: unset;
+          color: $txt-wite;
+        }
       }
     }
   }
