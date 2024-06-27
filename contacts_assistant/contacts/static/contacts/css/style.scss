@@ -1280,10 +1280,25 @@ header {
               height: 29vh;
               overflow: hidden;
               width: 100%;
-              img {
-                width: 100%;
+              img,
+              video {
+                max-width: 100%;
+                min-width: 100%;
                 height: 100%;
                 object-fit: cover;
+              }
+
+              &.file-inner-document {
+                background-color: $bgcolor1;
+                background-image: url(../images/document.webp);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                a {
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                }
               }
             }
 
@@ -1300,6 +1315,13 @@ header {
               button {
                 width: 45%;
                 margin: 0;
+              }
+
+              form {
+                width: 45%;
+                button {
+                  width: 100%;
+                }
               }
             }
           }

@@ -108,12 +108,12 @@
         <!-- end for document  -->
         {% for document in documents %}
         <div class="file-box">
-          <p>{{ document.description }}</p>
-          <div>
-            <a href="{{ document.path }}?fl_attachment=true" target="_blank"
-              >Download</a
+          <div class="file-inner file-inner-document">
+            <a href="{{ document.path }}?fl_attachment=true">
+              <span class="for-screnReader">Download</span></a
             >
           </div>
+          <p title="{{ document.description }}">{{ document.description }}</p>
           <div class="btns-wrap display-flex">
             <form
               method="post"
@@ -140,7 +140,7 @@
         <!-- end for video  -->
         {% for video in videos %}
         <div class="file-box">
-          <div class="video-wrap">
+          <div class="file-inner">
             <video width="320" height="240" controls preload="auto">
               <source src="{{ video.path }}" type="video/mp4" />
               Your browser does not support the video tag.
