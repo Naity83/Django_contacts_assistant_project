@@ -6,6 +6,7 @@ app_name = "my_files"
 
 urlpatterns = [
     path('', views.main, name='home'),
+    path('<int:page>', views.main, name='root_paginate'),
     path('upload_picture/', views.upload_picture, name='upload_picture'),
     path('upload_video/', views.upload_video, name='upload_video'),
     path('upload_document/', views.upload_document, name='upload_document'),

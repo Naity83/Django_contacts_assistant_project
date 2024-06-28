@@ -6,18 +6,28 @@ import cloudinary.uploader
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ValidationError
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 @login_required
-def main(request):
+def main(request, page=1):
     pictures = list(Picture.objects.all())
     videos = list(Video.objects.all())
     documents = list(Document.objects.all())
 
     all_files = pictures + videos + documents
+
     all_files.sort(key=lambda x: x.created_at, reverse=True)
 
-    return render(request, 'my_files/files_title.html', {'all_files': all_files})
+    per_page = 4
+    paginator = Paginator(list(all_files), per_page)
+    files_on_page = paginator.page(page)
+    context = {
+        'files_on_page': files_on_page
+    }
+    return render(request, 'my_files/files_title.html', context)
+
+
 
 
 @login_required
