@@ -3689,6 +3689,10 @@ img {
   justify-content: flex-start;
 }
 
+.display-flex.justify-end {
+  justify-content: flex-end;
+}
+
 .for-screnReader {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -5195,6 +5199,11 @@ header.floating {
 .pager-wrap .disabled {
   color: #333333;
   cursor: not-allowed;
+}
+
+.pager-wrap .pager .disabled > a,
+.pager-wrap .pager .disabled > span {
+  background-color: #797979;
 }
 
 .pager-wrap .pager li > .disabled:hover,

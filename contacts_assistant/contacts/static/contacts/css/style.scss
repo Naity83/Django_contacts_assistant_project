@@ -566,6 +566,9 @@ img {
   &.justify-start {
     justify-content: flex-start;
   }
+  &.justify-end {
+    justify-content: flex-end;
+  }
 }
 
 .for-screnReader {
@@ -1926,6 +1929,10 @@ header {
   .disabled {
     color: #333333;
     cursor: not-allowed;
+  }
+  .pager .disabled > a,
+  .pager .disabled > span {
+    background-color: #797979;
   }
 
   .pager li > .disabled:hover,
