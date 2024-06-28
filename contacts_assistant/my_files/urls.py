@@ -18,5 +18,9 @@ urlpatterns = [
     path('filter_picture', views.filter_picture, name='filter_picture'),
     path('filter_video', views.filter_video, name='filter_video'),
     path('filter_document', views.filter_document, name='filter_document'),
+    path('remove_picture_filter/<int:pk>/', views.remove_picture_filter, name='remove_picture_filter'),
+    path('video/<int:pk>/remove_filter/', views.remove_video_filter, name='remove_video_filter'),
+    path('remove_document_filter/<int:pk>/', views.remove_document_filter, name='remove_document_filter'),
+   
 
 ]

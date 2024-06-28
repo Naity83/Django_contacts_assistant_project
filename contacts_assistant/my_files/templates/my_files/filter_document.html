@@ -100,7 +100,7 @@
           <div class="btns-wrap display-flex">
             <form
               method="post"
-              action="{% url 'my_files:remove_document' document.id %}"
+              action="{% url 'my_files:remove_document_filter' document.id %}"
             >
               {% csrf_token %}
               <button class="btn-1 btn-2" type="submit" title="remove">
