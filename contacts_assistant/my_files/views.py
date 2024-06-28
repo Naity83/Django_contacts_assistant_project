@@ -6,16 +6,40 @@ import cloudinary.uploader
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ValidationError
+
+
 @login_required
 def main(request):
-    pictures = Picture.objects.filter(user=request.user)
-    videos = Video.objects.filter(user=request.user)
-    documents = Document.objects.filter(user=request.user)
-    return render(request, 'my_files/files_title.html', {
-        'pictures': pictures,
-        'videos': videos,
-        'documents': documents,
-    })
+    pictures = list(Picture.objects.all())
+    videos = list(Video.objects.all())
+    documents = list(Document.objects.all())
+
+    all_files = pictures + videos + documents
+    all_files.sort(key=lambda x: x.created_at, reverse=True)
+
+    return render(request, 'my_files/files_title.html', {'all_files': all_files})
+
+
+@login_required
+def filter_picture(request):
+    pictures = Picture.objects.all()
+
+    return render(request, 'my_files/filter_picture.html', {'pictures': pictures})
+
+
+@login_required
+def filter_video(request):
+    videos = Video.objects.all()
+
+    return render(request, 'my_files/filter_video.html', {'videos': videos})
+
+
+@login_required
+def filter_document(request):
+    documents = Document.objects.all()
+
+    return render(request, 'my_files/filter_document.html', {'documents': documents})
+
 
 
 @login_required

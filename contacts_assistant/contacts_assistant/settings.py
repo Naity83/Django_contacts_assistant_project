@@ -18,10 +18,8 @@ print(dotenv_path)
 load_dotenv(dotenv_path)
 
 load_dotenv()
-print("CLOUDINARY_SETTINGS:")
-print(os.getenv('CLD_NAME'))
-print(os.getenv('CLD_API_KEY'))
-print(os.getenv('CLD_API_SECRET'))
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

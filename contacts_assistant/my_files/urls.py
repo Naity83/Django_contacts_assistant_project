@@ -15,4 +15,8 @@ urlpatterns = [
     path('video/<int:pk>/change/', views.change_video, name='change_video'),
     path('remove_document/<int:pk>/', views.remove_document, name='remove_document'),
     path('change_document/<int:pk>/', views.change_document, name='change_document'),
+    path('filter_picture', views.filter_picture, name='filter_picture'),
+    path('filter_video', views.filter_video, name='filter_video'),
+    path('filter_document', views.filter_document, name='filter_document'),
+
 ]
