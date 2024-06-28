@@ -89,7 +89,7 @@
     <div class="files-wrap">
       <div class="files-iner display-flex">
         <!-- files -->
-        {% for file in all_files %} {% if file.get_file_type == 'picture' %}
+        {% for file in files_on_page %} {% if file.get_file_type == 'picture' %}
         <div class="file-box">
           <div class="file-inner">
             <img src="{{ file.path.url }}" alt="{{ file.description }}" />
@@ -176,15 +176,23 @@
         <!-- end files -->
       </div>
       <nav class="pager-wrap">
-        <ul class="pager">
-          <li class="previous">
-            <a class="" href=""> <span aria-hidden="true">←</span> Previous </a>
-          </li>
-          <li class="next">
-            <a class="" href="">Next <span aria-hidden="true">→</span></a>
-          </li>
-        </ul>
-      </nav>
+            <ul class="pager">
+
+                <li class="previous">
+                    <a class="{% if not files_on_page.has_previous %} disabled {% endif %}"
+                       href="{% if files_on_page.has_previous %} {% url 'my_files:root_paginate' files_on_page.previous_page_number %} {% else %} # {% endif %}">
+                        <span aria-hidden="true">←</span> Previous</a>
+                </li>
+
+
+                <li class="next">
+                    <a class="{% if not files_on_page.has_next %} disabled {% endif %}"
+                       href="{% if files_on_page.has_next %} {% url 'my_files:root_paginate' files_on_page.next_page_number %} {% else %} # {% endif %}">
+                        Next <span aria-hidden="true">→</span></a>
+                </li>
+
+            </ul>
+        </nav>
     </div>
   </div>
 </section>
