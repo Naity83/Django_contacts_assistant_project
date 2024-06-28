@@ -4671,6 +4671,12 @@ header.floating {
   margin-bottom: 40px;
 }
 
+@media (max-width: 700px) {
+  .section-table.section-news .section-wrap .currency-wrap .currency-inner {
+    padding: 10px;
+  }
+}
+
 .section-table.section-news .section-wrap .currency-wrap .currency-inner h3 {
   font-size: 22px;
   line-height: 26px;
@@ -4681,15 +4687,23 @@ header.floating {
   margin: 0;
   list-style: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding-bottom: 5px;
+}
+
+@media (max-width: 700px) {
+  .section-table.section-news .section-wrap .currency-wrap .currency-inner ul.list-name {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
 }
 
 .section-table.section-news .section-wrap .currency-wrap .currency-inner ul.list-name li {
   font-size: 18px;
   line-height: 23px;
   font-weight: 400;
-  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .section-table.section-news .section-wrap .currency-wrap .currency-inner ul.list-data li {
