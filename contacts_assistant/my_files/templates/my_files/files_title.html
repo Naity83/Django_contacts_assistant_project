@@ -175,24 +175,27 @@
         {% endif %} {% endfor %}
         <!-- end files -->
       </div>
-      <nav class="pager-wrap">
-            <ul class="pager">
-
-                <li class="previous">
-                    <a class="{% if not files_on_page.has_previous %} disabled {% endif %}"
-                       href="{% if files_on_page.has_previous %} {% url 'my_files:root_paginate' files_on_page.previous_page_number %} {% else %} # {% endif %}">
-                        <span aria-hidden="true">←</span> Previous</a>
-                </li>
-
-
-                <li class="next">
-                    <a class="{% if not files_on_page.has_next %} disabled {% endif %}"
-                       href="{% if files_on_page.has_next %} {% url 'my_files:root_paginate' files_on_page.next_page_number %} {% else %} # {% endif %}">
-                        Next <span aria-hidden="true">→</span></a>
-                </li>
-
-            </ul>
-        </nav>
+      <nav class="pager-wrap pager-wrap2">
+        <ul class="pager">
+          <li class="previous">
+            <a
+              class="{% if not files_on_page.has_previous %} disabled {% endif %}"
+              href="{% if files_on_page.has_previous %} {% url 'my_files:root_paginate' files_on_page.previous_page_number %} {% else %} # {% endif %}"
+            >
+              <span aria-hidden="true">←</span> <span class="tht">Previous</span>
+            </a>
+          </li>
+          <li class="next">
+            <a
+              class="{% if not files_on_page.has_next %} disabled {% endif %}"
+              href="{% if files_on_page.has_next %} {% url 'my_files:root_paginate' files_on_page.next_page_number %} {% else %} # {% endif %}"
+            >
+             <span class="tht">Next</span>
+               <span aria-hidden="true">→</span></a
+            >
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </section>

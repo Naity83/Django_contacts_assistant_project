@@ -5226,6 +5226,18 @@ header.floating {
   color: #333333;
 }
 
+.pager-wrap.pager-wrap2 .pager li > a.disabled {
+  background-color: #797979;
+}
+
+.pager-wrap.pager-wrap2 .pager li > a.disabled .tht {
+  display: none;
+}
+
+.pager-wrap.pager-wrap2 .pager li > a.disabled:hover, .pager-wrap.pager-wrap2 .pager li > a.disabled:focus {
+  background: #797979;
+}
+
 .scroll-box-wrap {
   background-color: rgba(42, 72, 145, 0.2);
   border-radius: 20px;
