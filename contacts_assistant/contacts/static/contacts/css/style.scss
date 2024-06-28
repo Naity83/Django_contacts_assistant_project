@@ -1989,11 +1989,16 @@ header {
 }
 
 .filter-dropbox-wrap {
-  margin-right: 15px;
   position: relative;
   @media (max-width: 1024px) {
     width: 100%;
-    margin-right: 0px;
+  }
+
+  &.mr15 {
+    margin-right: 15px;
+    @media (max-width: 1024px) {
+      margin-right: 0px;
+    }
   }
   .btn-2 {
     img {

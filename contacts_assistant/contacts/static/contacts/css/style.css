@@ -5269,13 +5269,21 @@ header.floating {
 }
 
 .filter-dropbox-wrap {
-  margin-right: 15px;
   position: relative;
 }
 
 @media (max-width: 1024px) {
   .filter-dropbox-wrap {
     width: 100%;
+  }
+}
+
+.filter-dropbox-wrap.mr15 {
+  margin-right: 15px;
+}
+
+@media (max-width: 1024px) {
+  .filter-dropbox-wrap.mr15 {
     margin-right: 0px;
   }
 }
