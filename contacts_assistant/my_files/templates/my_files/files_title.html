@@ -20,14 +20,29 @@
           </button>
           <div class="tag-list-wrap hidden">
             <ul class="list list-style1 mr15">
-              <li><a href="{% url 'my_files:filter_video' %}">Videos</a></li>
               <li>
-                <a href="{% url 'my_files:filter_picture' %}"
+                <a class="btn-1 btn-2" href="{% url 'my_files:filter_video' %}"
+                  >Videos</a
+                >
+              </li>
+              <li>
+                <a
+                  class="btn-1 btn-2"
+                  href="{% url 'my_files:filter_picture' %}"
                   >Images and Photos</a
                 >
               </li>
               <li>
-                <a href="{% url 'my_files:filter_document' %}">Documents</a>
+                <a
+                  class="btn-1 btn-2"
+                  href="{% url 'my_files:filter_document' %}"
+                  >Documents</a
+                >
+              </li>
+              <li>
+                <a class="btn-1 btn-2" href="{% url 'my_files:home' %}"
+                  >Show All</a
+                >
               </li>
             </ul>
           </div>
@@ -133,7 +148,7 @@
         <div class="file-box">
           <div class="file-inner file-inner-document">
             <a href="{{ file.path.url }}?fl_attachment=true" download>
-              <span class="for-screenReader">Download</span>
+              <span class="for-screnReader">Download</span>
             </a>
           </div>
           <p title="{{ file.description }}">{{ file.description }}</p>
