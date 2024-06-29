@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'contacts',
-    'notes.apps.CatalogConfig',
+    'notes',
     'users',
     'my_files',
     'news',
