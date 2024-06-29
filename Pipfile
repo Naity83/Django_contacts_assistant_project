@@ -12,6 +12,7 @@ faker = "*"
 cloudinary = "*"
 django-cloudinary-storage = "*"
 beautifulsoup4 = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
