@@ -47,13 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'contacts',
-    'notes',
-    'users',
-    'my_files',
-    'news',
-    'cloudinary',
-    'cloudinary_storage',
+    'contacts_assistant.contacts',
+    'contacts_assistant.notes',
+    'contacts_assistant.users',
+    'contacts_assistant.my_files',
+    'contacts_assistant.news',
+    # 'cloudinary',
+    # 'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
