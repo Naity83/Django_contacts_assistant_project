@@ -1,1 +1,1 @@
-web: cd contacts_assistant && gunicorn contacts_assistant.wsgi
+web: gunicorn contacts_assistant.wsgi
