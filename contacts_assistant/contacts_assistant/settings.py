@@ -152,13 +152,14 @@ USE_L10N = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
+# WARNINGS:
+# ?: (staticfiles.W004) The directory 'C:\Users\user\Documents\WRK\Django_contacts_assistant_project\contacts_assistant\static' in the STATICFILES_DIRS setting does not exist.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-       os.path.join(BASE_DIR, 'static'),
+       os.path.join(BASE_DIR, 'contacts/static'),
    ]
+STATIC_URL = 'static/'
+
 
 
 LOGIN_URL = "/users/signin"
