@@ -1,1 +1,1 @@
-web: gunicorn --chdir /workspace/contacts_assistant contacts_assistant.wsgi:application
+web: gunicorn --chdir /workspace/contacts_assistant contacts_assistant.wsgi
