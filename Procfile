@@ -1,1 +1,1 @@
-web: gunicorn contact_assistant.contacts_assistant.wsgi
+web: gunicorn contacts_assistant.contacts_assistant.wsgi
