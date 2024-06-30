@@ -32,6 +32,7 @@ def main(request, page=1):
 def filter_picture(request, page=1):
     all_pictures = Picture.objects.filter(user=request.user)
 
+
     per_page = 4
     paginator = Paginator(list(all_pictures), per_page)
     pictures = paginator.page(page)
@@ -43,6 +44,7 @@ def filter_picture(request, page=1):
 def filter_video(request, page=1):
     all_videos = Video.objects.filter(user=request.user)
 
+
     per_page = 4
     paginator = Paginator(list(all_videos), per_page)
     videos = paginator.page(page)
@@ -53,6 +55,10 @@ def filter_video(request, page=1):
 @login_required
 def filter_document(request, page=1):
     all_documents = Document.objects.filter(user=request.user)
+
+    per_page = 4
+    paginator = Paginator(list(all_documents), per_page)
+    documents = paginator.page(page)
 
     per_page = 4
     paginator = Paginator(list(all_documents), per_page)
