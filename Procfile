@@ -1,1 +1,1 @@
-web: gunicorn contacts_assistant.wsgi
+web: gunicorn --pythonpath contacts_assistant contacts_assistant.wsgi

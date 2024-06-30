@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -149,12 +150,13 @@ USE_L10N = False
 # WARNINGS:
 # ?: (staticfiles.W004) The directory 'C:\Users\user\Documents\WRK\Django_contacts_assistant_project\contacts_assistant\static' in the STATICFILES_DIRS setting does not exist.
 STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'contacts/static'),
 ]
-# print(f"STATIC_ROOT = {STATIC_ROOT}")
+print(f"STATIC_ROOT = {STATIC_ROOT}")
 print(f"STATICFILES_DIRS = {STATICFILES_DIRS}")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 LOGIN_URL = "/users/signin"
 LOGIN_REDIRECT_URL = "/"
