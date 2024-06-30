@@ -991,7 +991,7 @@ header {
 
 .section-welcome {
   background-color: $bgcolor1;
-  background-image: url(../images/section-welcome.jpg);
+  background-image: url(../images/section-welcome.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1075,7 +1075,7 @@ header {
 
 .section-register {
   background-color: $bgcolor1;
-  background-image: url(../images/section-register.jpg);
+  background-image: url(../images/section-register.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1113,11 +1113,11 @@ header {
   }
 
   &.add-new-contact {
-    background-image: url(../images/section-welcome.jpg);
+    background-image: url(../images/section-welcome.webp);
   }
 
   &.upload-files {
-    background-image: url(../images/upload-files.jpg);
+    background-image: url(../images/upload-files.webp);
     padding-top: 80px;
     padding-bottom: 80px;
     @media (max-width: 800px) {
@@ -1127,7 +1127,7 @@ header {
   }
 
   &.add-new-notes {
-    background-image: url(../images/section-notes.jpg);
+    background-image: url(../images/section-notes.webp);
     padding-top: 80px;
     padding-bottom: 80px;
     @media (max-width: 800px) {
@@ -1137,7 +1137,7 @@ header {
   }
 
   &.add-new-tags {
-    background-image: url(../images/section-notes.jpg);
+    background-image: url(../images/section-notes.webp);
     @media (max-width: 1279px) {
       padding-top: 40px;
       padding-bottom: 40px;
@@ -1181,7 +1181,7 @@ header {
 
 .section-table {
   background-color: $bgcolor1;
-  background-image: url(../images/section-welcome.jpg);
+  background-image: url(../images/section-welcome.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1217,11 +1217,11 @@ header {
   }
 
   &.section-notes {
-    background-image: url(../images/section-notes.jpg);
+    background-image: url(../images/section-notes.webp);
   }
 
   &.section-files {
-    background-image: url(../images/upload-files.jpg);
+    background-image: url(../images/upload-files.webp);
     padding-bottom: 150px;
     background-attachment: fixed;
 
@@ -1334,7 +1334,7 @@ header {
   }
 
   &.section-news {
-    background-image: url(../images/section-news.jpg);
+    background-image: url(../images/section-news.webp);
     padding-bottom: 150px;
     background-attachment: fixed;
     @media (max-width: 1024px) {
@@ -1484,7 +1484,7 @@ header {
   }
 
   &.section-news2 {
-    background-image: url(../images/section-news.jpg);
+    background-image: url(../images/section-news.webp);
     padding-bottom: 150px;
     background-attachment: fixed;
     @media (max-width: 1024px) {
@@ -1589,7 +1589,7 @@ header {
 
 .section-abouts {
   background-color: $bgcolor1;
-  background-image: url(../images/about-s.jpg);
+  background-image: url(../images/about-s.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

@@ -4147,7 +4147,7 @@ header.floating {
 
 .section-welcome {
   background-color: #1b2c64;
-  background-image: url(../images/section-welcome.jpg);
+  background-image: url(../images/section-welcome.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -4238,7 +4238,7 @@ header.floating {
 
 .section-register {
   background-color: #1b2c64;
-  background-image: url(../images/section-register.jpg);
+  background-image: url(../images/section-register.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -4288,11 +4288,11 @@ header.floating {
 }
 
 .section-register.add-new-contact {
-  background-image: url(../images/section-welcome.jpg);
+  background-image: url(../images/section-welcome.webp);
 }
 
 .section-register.upload-files {
-  background-image: url(../images/upload-files.jpg);
+  background-image: url(../images/upload-files.webp);
   padding-top: 80px;
   padding-bottom: 80px;
 }
@@ -4305,7 +4305,7 @@ header.floating {
 }
 
 .section-register.add-new-notes {
-  background-image: url(../images/section-notes.jpg);
+  background-image: url(../images/section-notes.webp);
   padding-top: 80px;
   padding-bottom: 80px;
 }
@@ -4318,7 +4318,7 @@ header.floating {
 }
 
 .section-register.add-new-tags {
-  background-image: url(../images/section-notes.jpg);
+  background-image: url(../images/section-notes.webp);
 }
 
 @media (max-width: 1279px) {
@@ -4364,7 +4364,7 @@ header.floating {
 
 .section-table {
   background-color: #1b2c64;
-  background-image: url(../images/section-welcome.jpg);
+  background-image: url(../images/section-welcome.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -4414,11 +4414,11 @@ header.floating {
 }
 
 .section-table.section-notes {
-  background-image: url(../images/section-notes.jpg);
+  background-image: url(../images/section-notes.webp);
 }
 
 .section-table.section-files {
-  background-image: url(../images/upload-files.jpg);
+  background-image: url(../images/upload-files.webp);
   padding-bottom: 150px;
   background-attachment: fixed;
 }
@@ -4547,7 +4547,7 @@ header.floating {
 }
 
 .section-table.section-news {
-  background-image: url(../images/section-news.jpg);
+  background-image: url(../images/section-news.webp);
   padding-bottom: 150px;
   background-attachment: fixed;
 }
@@ -4714,7 +4714,7 @@ header.floating {
 }
 
 .section-table.section-news2 {
-  background-image: url(../images/section-news.jpg);
+  background-image: url(../images/section-news.webp);
   padding-bottom: 150px;
   background-attachment: fixed;
 }
@@ -4836,7 +4836,7 @@ header.floating {
 
 .section-abouts {
   background-color: #1b2c64;
-  background-image: url(../images/about-s.jpg);
+  background-image: url(../images/about-s.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
