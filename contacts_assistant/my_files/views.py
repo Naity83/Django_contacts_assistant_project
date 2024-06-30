@@ -31,22 +31,34 @@ def main(request, page=1):
 
 
 @login_required
-def filter_picture(request):
-    pictures = Picture.objects.all()
+def filter_picture(request, page=1):
+    all_pictures = Picture.objects.all()
+
+    per_page = 4
+    paginator = Paginator(list(all_pictures), per_page)
+    pictures = paginator.page(page)
 
     return render(request, 'my_files/filter_picture.html', {'pictures': pictures})
 
 
 @login_required
-def filter_video(request):
-    videos = Video.objects.all()
+def filter_video(request, page=1):
+    all_videos = Video.objects.all()
+
+    per_page = 4
+    paginator = Paginator(list(all_videos), per_page)
+    videos = paginator.page(page)
 
     return render(request, 'my_files/filter_video.html', {'videos': videos})
 
 
 @login_required
-def filter_document(request):
-    documents = Document.objects.all()
+def filter_document(request, page=1):
+    all_documents = Document.objects.all()
+
+    per_page = 4
+    paginator = Paginator(list(all_documents), per_page)
+    documents = paginator.page(page)
 
     return render(request, 'my_files/filter_document.html', {'documents': documents})
 

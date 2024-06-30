@@ -21,21 +21,21 @@
           <div class="tag-list-wrap hidden">
             <ul class="list list-style1 mr15">
               <li>
-                <a class="btn-1 btn-2" href="{% url 'my_files:filter_video' %}"
+                <a class="btn-1 btn-2" href="{% url 'my_files:filter_video' 1 %}"
                   >Videos</a
                 >
               </li>
               <li>
                 <a
                   class="btn-1 btn-2"
-                  href="{% url 'my_files:filter_picture' %}"
+                  href="{% url 'my_files:filter_picture' 1 %}"
                   >Images and Photos</a
                 >
               </li>
               <li>
                 <a
                   class="btn-1 btn-2"
-                  href="{% url 'my_files:filter_document' %}"
+                  href="{% url 'my_files:filter_document' 1 %}"
                   >Documents</a
                 >
               </li>
@@ -122,13 +122,24 @@
 
         <!-- end files -->
       </div>
-      <nav class="pager-wrap">
+      <nav class="pager-wrap pager-wrap2">
         <ul class="pager">
           <li class="previous">
-            <a class="" href=""> <span aria-hidden="true">←</span> Previous </a>
+            <a
+              class="{% if not videos.has_previous %} disabled {% endif %}"
+              href="{% if videos.has_previous %} {% url 'my_files:filter_video' videos.previous_page_number %} {% else %} # {% endif %}"
+            >
+              <span aria-hidden="true">←</span> <span class="tht">Previous</span>
+            </a>
           </li>
           <li class="next">
-            <a class="" href="">Next <span aria-hidden="true">→</span></a>
+            <a
+              class="{% if not videos.has_next %} disabled {% endif %}"
+              href="{% if videos.has_next %} {% url 'my_files:filter_video' videos.next_page_number %} {% else %} # {% endif %}"
+            >
+             <span class="tht">Next</span>
+               <span aria-hidden="true">→</span></a
+            >
           </li>
         </ul>
       </nav>
