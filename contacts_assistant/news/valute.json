@@ -1,5 +1,5 @@
 {
-    "date": "28.06.2024",
+    "date": "30.06.2024",
     "bank": "PB",
     "baseCurrency": 980,
     "baseCurrencyLit": "UAH",
@@ -17,7 +17,7 @@
             "currency": "PLN",
             "saleRateNB": 10.0407,
             "purchaseRateNB": 10.0407,
-            "saleRate": 10.17,
+            "saleRate": 10.16,
             "purchaseRate": 10.0
         },
         {

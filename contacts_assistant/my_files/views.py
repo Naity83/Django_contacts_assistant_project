@@ -11,9 +11,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 @login_required
 def main(request, page=1):
-    pictures = list(Picture.objects.all())
-    videos = list(Video.objects.all())
-    documents = list(Document.objects.all())
+    pictures = list(Picture.objects.filter(user=request.user))
+    videos = list(Video.objects.filter(user=request.user))
+    documents = list(Document.objects.filter(user=request.user))
 
     all_files = pictures + videos + documents
 
@@ -28,11 +28,10 @@ def main(request, page=1):
     return render(request, 'my_files/files_title.html', context)
 
 
-
-
 @login_required
 def filter_picture(request, page=1):
-    all_pictures = Picture.objects.all()
+    all_pictures = Picture.objects.filter(user=request.user)
+
 
     per_page = 4
     paginator = Paginator(list(all_pictures), per_page)
@@ -43,7 +42,8 @@ def filter_picture(request, page=1):
 
 @login_required
 def filter_video(request, page=1):
-    all_videos = Video.objects.all()
+    all_videos = Video.objects.filter(user=request.user)
+
 
     per_page = 4
     paginator = Paginator(list(all_videos), per_page)
@@ -54,14 +54,17 @@ def filter_video(request, page=1):
 
 @login_required
 def filter_document(request, page=1):
-    all_documents = Document.objects.all()
+    all_documents = Document.objects.filter(user=request.user)
+
+    per_page = 4
+    paginator = Paginator(list(all_documents), per_page)
+    documents = paginator.page(page)
 
     per_page = 4
     paginator = Paginator(list(all_documents), per_page)
     documents = paginator.page(page)
 
     return render(request, 'my_files/filter_document.html', {'documents': documents})
-
 
 
 @login_required
@@ -108,6 +111,7 @@ def validate_file_size(value):
         raise ValidationError('Максимальный размер файла 10Мб')
     return value
 
+
 @login_required
 def upload_video(request):
     if request.method == 'POST':
@@ -145,6 +149,7 @@ def upload_video(request):
         form = VideoForm()
 
     return render(request, 'my_files/upload_video.html', {'form': form})
+
 
 @login_required
 def upload_document(request):
@@ -192,7 +197,7 @@ def remove_picture(request, pk):
         picture.delete()
         return redirect('my_files:home')
     return redirect('my_files:home')    
-    
+
 
 @login_required
 def remove_picture_filter(request, pk):
@@ -201,6 +206,7 @@ def remove_picture_filter(request, pk):
         picture.delete()
         return redirect('my_files:filter_picture')
     return redirect('my_files:filter_picture')
+
 
 @login_required
 def change_picture(request, pk):
@@ -236,7 +242,6 @@ def remove_video(request, pk):
         return redirect('my_files:home')
     return redirect('my_files:home')
     
-   
 
 @login_required
 def remove_video_filter(request, pk):
@@ -245,6 +250,7 @@ def remove_video_filter(request, pk):
         video.delete()
         return redirect('my_files:filter_video')
     return redirect('my_files:filter_video')
+
 
 @login_required
 def change_video(request, pk):
@@ -278,32 +284,32 @@ def remove_document(request, pk):
     document = get_object_or_404(Document, pk=pk, user=request.user)
     if request.method == 'POST':
         document.delete()
-        return redirect('my_files:home')  
-    return redirect('my_files:home') 
+        return redirect('my_files:home')
+    return redirect('my_files:home')
+
 
 @login_required
 def remove_document_filter(request, pk):
     document = get_object_or_404(Document, pk=pk, user=request.user)
     if request.method == 'POST':
         document.delete()
-        return redirect('my_files:filter_document')  
-    return redirect('my_files:filter_document') 
+        return redirect('my_files:filter_document')
+    return redirect('my_files:filter_document')
 
 
 @login_required
 def change_document(request, pk):
     document = get_object_or_404(Document, pk=pk, user=request.user)
-    
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES, instance=document)
         if form.is_valid():
             try:
                 upload_result = cloudinary.uploader.upload(
-                    request.FILES['path'],  
+                    request.FILES['path'],  # Замените 'path' на имя поля из вашей формы
+                    resource_type="auto",
                     api_key=settings.CLOUDINARY_STORAGE['API_KEY'],
                     api_secret=settings.CLOUDINARY_STORAGE['API_SECRET'],
-                    cloud_name=settings.CLOUDINARY_STORAGE['CLOUD_NAME'],
-                    resource_type="auto"  
+                    cloud_name=settings.CLOUDINARY_STORAGE['CLOUD_NAME']
                 )
                 document.path = upload_result['url']
                 form.save()
@@ -315,5 +321,5 @@ def change_document(request, pk):
             print(form.errors)
     else:
         form = DocumentForm(instance=document)
-    
     return render(request, 'my_files/change_document.html', {'form': form})
+
