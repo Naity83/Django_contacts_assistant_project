@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import whitenoise
 # import dj_database_url
 from dotenv import load_dotenv
 
@@ -156,7 +157,10 @@ STATICFILES_DIRS = [
 print(f"STATIC_ROOT = {STATIC_ROOT}")
 print(f"STATICFILES_DIRS = {STATICFILES_DIRS}")
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 LOGIN_URL = "/users/signin"
 LOGIN_REDIRECT_URL = "/"
