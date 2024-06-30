@@ -191,6 +191,16 @@ def remove_picture(request, pk):
     if request.method == 'POST':
         picture.delete()
         return redirect('my_files:home')
+    return redirect('my_files:home')    
+    
+
+@login_required
+def remove_picture_filter(request, pk):
+    picture = get_object_or_404(Picture, pk=pk, user=request.user)
+    if request.method == 'POST':
+        picture.delete()
+        return redirect('my_files:filter_picture')
+    return redirect('my_files:filter_picture')
 
 @login_required
 def change_picture(request, pk):
@@ -224,7 +234,17 @@ def remove_video(request, pk):
     if request.method == 'POST':
         video.delete()
         return redirect('my_files:home')
-    # Добавьте здесь дополнительную логику для GET запроса, если необходимо
+    return redirect('my_files:home')
+    
+   
+
+@login_required
+def remove_video_filter(request, pk):
+    video = get_object_or_404(Video, pk=pk, user=request.user)
+    if request.method == 'POST':
+        video.delete()
+        return redirect('my_files:filter_video')
+    return redirect('my_files:filter_video')
 
 @login_required
 def change_video(request, pk):
@@ -258,8 +278,16 @@ def remove_document(request, pk):
     document = get_object_or_404(Document, pk=pk, user=request.user)
     if request.method == 'POST':
         document.delete()
-        return redirect('my_files:home')  # После удаления перенаправляем на главную страницу или другую нужную страницу
-    return redirect('my_files:home')  # В случае GET запроса также перенаправляем на главную страницу
+        return redirect('my_files:home')  
+    return redirect('my_files:home') 
+
+@login_required
+def remove_document_filter(request, pk):
+    document = get_object_or_404(Document, pk=pk, user=request.user)
+    if request.method == 'POST':
+        document.delete()
+        return redirect('my_files:filter_document')  
+    return redirect('my_files:filter_document') 
 
 
 @login_required
@@ -271,11 +299,11 @@ def change_document(request, pk):
         if form.is_valid():
             try:
                 upload_result = cloudinary.uploader.upload(
-                    request.FILES['path'],  # Используйте имя поля из вашей формы DocumentForm
+                    request.FILES['path'],  
                     api_key=settings.CLOUDINARY_STORAGE['API_KEY'],
                     api_secret=settings.CLOUDINARY_STORAGE['API_SECRET'],
                     cloud_name=settings.CLOUDINARY_STORAGE['CLOUD_NAME'],
-                    resource_type="auto"  # Укажите тип ресурса, если он не автоматически определяется
+                    resource_type="auto"  
                 )
                 document.path = upload_result['url']
                 form.save()
