@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import whitenoise
 from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 print(dotenv_path)
@@ -34,7 +35,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')   # 'django-insecure-ot3in7dh5$pb+xpd6-!%rf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -51,12 +52,13 @@ INSTALLED_APPS = [
     'users',
     'my_files',
     'news',
-    'cloudinary',
-    'cloudinary_storage',
+    #'cloudinary',
+    #'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -137,10 +139,23 @@ USE_L10N = False
 
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'contacts/static'),
+]
+print(f"STATIC_ROOT = {STATIC_ROOT}")
+print(f"STATICFILES_DIRS = {STATICFILES_DIRS}")
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
 
 LOGIN_URL = "/users/signin"    
 LOGIN_REDIRECT_URL = "/"
