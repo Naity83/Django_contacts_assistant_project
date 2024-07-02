@@ -7,6 +7,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.urls import reverse
 
 
 @login_required
@@ -199,13 +200,15 @@ def remove_picture(request, pk):
     return redirect('my_files:home')    
 
 
+
 @login_required
 def remove_picture_filter(request, pk):
     picture = get_object_or_404(Picture, pk=pk, user=request.user)
+    page = request.GET.get('page', 1)  # Получаем текущую страницу из параметров запроса
     if request.method == 'POST':
         picture.delete()
-        return redirect('my_files:filter_picture')
-    return redirect('my_files:filter_picture')
+        return redirect(reverse('my_files:filter_picture', kwargs={'page': page}))
+    return redirect(reverse('my_files:filter_picture', kwargs={'page': page}))
 
 
 @login_required
@@ -246,10 +249,12 @@ def remove_video(request, pk):
 @login_required
 def remove_video_filter(request, pk):
     video = get_object_or_404(Video, pk=pk, user=request.user)
+    page = request.GET.get('page', 1)  # Получаем текущую страницу из параметров запроса
     if request.method == 'POST':
         video.delete()
-        return redirect('my_files:filter_video')
-    return redirect('my_files:filter_video')
+        return redirect(reverse('my_files:filter_video', kwargs={'page': page}))
+    return redirect(reverse('my_files:filter_video', kwargs={'page': page}))
+
 
 
 @login_required
@@ -291,10 +296,12 @@ def remove_document(request, pk):
 @login_required
 def remove_document_filter(request, pk):
     document = get_object_or_404(Document, pk=pk, user=request.user)
+    page = request.GET.get('page', 1)  # Получаем текущую страницу из параметров запроса
     if request.method == 'POST':
         document.delete()
-        return redirect('my_files:filter_document')
-    return redirect('my_files:filter_document')
+        return redirect(reverse('my_files:filter_document', kwargs={'page': page}))
+    return redirect(reverse('my_files:filter_document', kwargs={'page': 1}))
+
 
 
 @login_required

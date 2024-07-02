@@ -124,25 +124,22 @@
       </div>
       <nav class="pager-wrap pager-wrap2">
         <ul class="pager">
-          <li class="previous">
-            <a
-              class="{% if not videos.has_previous %} disabled {% endif %}"
-              href="{% if videos.has_previous %} {% url 'my_files:filter_video' videos.previous_page_number %} {% else %} # {% endif %}"
-            >
-              <span aria-hidden="true">←</span> <span class="tht">Previous</span>
-            </a>
-          </li>
-          <li class="next">
-            <a
-              class="{% if not videos.has_next %} disabled {% endif %}"
-              href="{% if videos.has_next %} {% url 'my_files:filter_video' videos.next_page_number %} {% else %} # {% endif %}"
-            >
-             <span class="tht">Next</span>
-               <span aria-hidden="true">→</span></a
-            >
-          </li>
+            <li class="previous">
+                <a class="{% if not videos.has_previous %} disabled {% endif %}"
+                   href="{% if videos.has_previous %} {% url 'my_files:filter_video' videos.previous_page_number %} {% else %} # {% endif %}">
+                    <span aria-hidden="true">←</span> <span class="tht">Previous</span>
+                </a>
+            </li>
+            <li class="next">
+                <a class="{% if not videos.has_next %} disabled {% endif %}"
+                   href="{% if videos.has_next %} {% url 'my_files:filter_video' videos.next_page_number %} {% else %} # {% endif %}">
+                    <span class="tht">Next</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+            </li>
         </ul>
-      </nav>
+    </nav>
+    
     </div>
   </div>
 </section>

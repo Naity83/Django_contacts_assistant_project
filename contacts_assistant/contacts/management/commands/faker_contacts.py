@@ -8,7 +8,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         fake = Faker()
 
-        for _ in range(30):
+        for _ in range(5):
             Contact.objects.create(
                 full_name=fake.name()[:200],  # Ограничение длины до 200 символов
                 address=fake.address()[:255],  # Ограничение длины до 255 символов

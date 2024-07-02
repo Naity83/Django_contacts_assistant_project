@@ -96,15 +96,16 @@
           </div>
           <p title="{{ picture.description }}">{{ picture.description }}</p>
           <div class="btns-wrap display-flex">
-            <form
-              method="post"
-              action="{% url 'my_files:remove_picture_filter' picture.id %}"
-            >
+            <form method="post" action="{% url 'my_files:remove_picture_filter' pk=picture.id %}">
               {% csrf_token %}
               <button class="btn-1 btn-2" type="submit" title="remove">
-                <span>remove</span>
+                  <span>remove</span>
               </button>
-            </form>
+          </form>
+          
+          
+          
+          
             <form
               method="get"
               action="{% url 'my_files:change_picture' picture.id %}"
@@ -122,24 +123,18 @@
       <nav class="pager-wrap pager-wrap2">
         <ul class="pager">
           <li class="previous">
-            <a
-              class="{% if not pictures.has_previous %} disabled {% endif %}"
-              href="{% if pictures.has_previous %} {% url 'my_files:filter_picture' pictures.previous_page_number %} {% else %} # {% endif %}"
-            >
+            <a class="{% if not pictures.has_previous %} disabled {% endif %}" href="{% if pictures.has_previous %}{% url 'my_files:filter_picture' pictures.previous_page_number %}{% else %}#{% endif %}">
               <span aria-hidden="true">←</span> <span class="tht">Previous</span>
             </a>
           </li>
           <li class="next">
-            <a
-              class="{% if not pictures.has_next %} disabled {% endif %}"
-              href="{% if pictures.has_next %} {% url 'my_files:filter_picture' pictures.next_page_number %} {% else %} # {% endif %}"
-            >
-             <span class="tht">Next</span>
-               <span aria-hidden="true">→</span>
+            <a class="{% if not pictures.has_next %} disabled {% endif %}" href="{% if pictures.has_next %}{% url 'my_files:filter_picture' pictures.next_page_number %}{% else %}#{% endif %}">
+              <span class="tht">Next</span> <span aria-hidden="true">→</span>
             </a>
           </li>
         </ul>
       </nav>
+      
     </div>
   </div>
 </section>

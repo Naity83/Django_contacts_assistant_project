@@ -124,24 +124,21 @@
       <nav class="pager-wrap pager-wrap2">
         <ul class="pager">
           <li class="previous">
-            <a
-              class="{% if not documents.has_previous %} disabled {% endif %}"
-              href="{% if documents.has_previous %} {% url 'my_files:filter_document' documents.previous_page_number %} {% else %} # {% endif %}"
-            >
+            <a class="{% if not documents.has_previous %} disabled {% endif %}"
+               href="{% if documents.has_previous %} {% url 'my_files:filter_document' documents.previous_page_number %} {% else %} # {% endif %}">
               <span aria-hidden="true">←</span> <span class="tht">Previous</span>
             </a>
           </li>
           <li class="next">
-            <a
-              class="{% if not documents.has_next %} disabled {% endif %}"
-              href="{% if documents.has_next %} {% url 'my_files:filter_document' documents.next_page_number %} {% else %} # {% endif %}"
-            >
-             <span class="tht">Next</span>
-               <span aria-hidden="true">→</span>
+            <a class="{% if not documents.has_next %} disabled {% endif %}"
+               href="{% if documents.has_next %} {% url 'my_files:filter_document' documents.next_page_number %} {% else %} # {% endif %}">
+              <span class="tht">Next</span>
+              <span aria-hidden="true">→</span>
             </a>
           </li>
         </ul>
       </nav>
+      
     </div>
   </div>
 </section>
